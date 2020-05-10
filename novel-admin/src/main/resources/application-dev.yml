@@ -1,11 +1,11 @@
-java2nb:
+lyqiaofu:
   uploadPath: F:/home/ly_novel/uploaded_files/
   username: admin
   password: 111111
 logging:
   level:
     root: info
-    com.java2nb: debug
+    com.lyqiaofu: debug
 spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource

@@ -18,9 +18,9 @@ import io.swagger.annotations.ApiOperation;
 
 import ${package}.domain.${className}DO;
 import ${package}.service.${className}Service;
-import com.java2nb.common.utils.PageBean;
-import com.java2nb.common.utils.Query;
-import com.java2nb.common.utils.R;
+import com.lyqiaofu.common.utils.PageBean;
+import com.lyqiaofu.common.utils.Query;
+import com.lyqiaofu.common.utils.R;
 
 /**
  * ${comments}

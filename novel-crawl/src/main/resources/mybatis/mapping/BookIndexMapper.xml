@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.java2nb.novel.mapper.CrawlBookIndexMapper">
+<mapper namespace="com.lyqiaofu.novel.mapper.CrawlBookIndexMapper">
 
-    <select id="queryLastIndex" parameterType="long" resultType="com.java2nb.novel.entity.BookIndex">
+    <select id="queryLastIndex" parameterType="long" resultType="com.lyqiaofu.novel.entity.BookIndex">
 
 
         select id,index_name,update_time

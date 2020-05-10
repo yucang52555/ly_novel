@@ -116,7 +116,7 @@ body, .read_style_1 { background-color: #ebe5d8 }
 .readTheme .gray { background-color: #eee }
 .readTheme .night { background-color: #666 }
 /*.readTheme a.current, .readTheme a:hover { box-shadow: 1px 3px 5px #aaa }*/
-.read_style_1 .readTheme .white, .read_style_2 .readTheme .green, .read_style_3 .readTheme .pink, .read_style_4 .readTheme .yellow, .read_style_5 .readTheme .gray, .read_style_6 .readTheme .night { border-color: #f80 }
+.read_style_1 .readTheme .white, .read_style_2 .readTheme .green, .read_style_3 .readTheme .pink, .read_style_4 .readTheme .yellow, .read_style_5 .readTheme .gray, .read_style_6 .readTheme .night { border-color: #666 }
 .setBtn a { border: 1px solid #D9D9D9; width: 53px; height: 28px; line-height: 28px; box-shadow: 0 1px 1px #ECECEC; border-radius: 3px }
 .setBtn .act { color: #CC2931 }
 .setFont .setSimsun { font-family: Simsun; font-size: 13px }
@@ -143,7 +143,7 @@ body, .read_style_1 { background-color: #ebe5d8 }
 }
 .pc_bar { padding: 30px 0 10px; text-align: center; position: relative; }
 .icon_pc { box-shadow: 0 1px 1px rgba(0,0,0,.3); padding: 3px; display: inline-block; border-radius: 50%; }
-.icon_pc span { width: 96px; height: 96px; line-height: 1; border-radius: 50%; display: inline-block; background-color: #f80; color: #fefefe; font-size: 22px; letter-spacing: 0px; text-align: center; }
+.icon_pc span { width: 96px; height: 96px; line-height: 1; border-radius: 50%; display: inline-block; background-color: #666; color: #fefefe; font-size: 22px; letter-spacing: 0px; text-align: center; }
 .icon_pc:hover span { background: #ed4259 }
 .icon_yb { width: 37px; height: 27px; display: block; background-position: 0 -173px; margin: 19px auto 7px }
 .icon_pc em { filter: alpha(opacity=90); -moz-opacity: 0.9; opacity: 0.9; }
@@ -174,7 +174,7 @@ body, .read_style_1 { background-color: #ebe5d8 }
 .order_zj h4 { font-size:18px; font-weight:normal }
 .order_zj .price { font-size:12px; padding-top:6px }
 .order_zj .price .red { margin-left:5px }
-.order_allzj { background:#f80; color:#fff; border-color:#f80 }
+.order_allzj { background:#666; color:#fff; border-color:#666 }
 .order_allzj .red { color:#fff }
 .order_allzj:hover { color:#fff; background:#f70; border-color:#f70 }
 .order_tip { padding:25px 0 10px; color:#999; font-size:13px }

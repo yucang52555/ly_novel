@@ -33,7 +33,7 @@
 .rightBox { width: 240px; float: right; /*border: 1px solid #EAEAEA;*/ position: relative }
 .rightBox .title, .wrap_right_cont .title { /*height: 48px; margin: 0 14px;*/ border-bottom: 1px solid #e0e0e0 }
 .rightBox .title h3, .wrap_right_cont .title h3 { line-height: 1; padding-bottom: 14px; display: inline-block; font-size: 20px; font-weight: 600; /*border-bottom: 4px solid transparent*/ }
-/*.rightBox .title h3.on { border-color: #f80 }*/
+/*.rightBox .title h3.on { border-color: #666 }*/
 .rightList ul { padding: 0  }
 .rightList li { /*border-bottom: 1px dotted #e0e0e0; height: 37px; line-height: 37px;*/ overflow: hidden; position: relative; vertical-align: middle }
 .rightList li:last-child { border: none }
@@ -126,7 +126,7 @@
 .payCon h5 { font-size: 16px; font-weight: normal; padding: 28px 0 2px }
 .pay_way { padding-bottom: 5px }
 .pay_way li { width: 196px; text-align: center; border: 2px solid #eee; border-radius: 4px; margin: 20px 26px 3px 0; float: left; cursor: pointer; line-height: 1 }
-.pay_way li.on { border-color: #f80 }
+.pay_way li.on { border-color: #666 }
 .pay_way li .pay_pic { width: 180px; margin: 12px auto; }
 .pay_way li strong { font-size: 24px; display: block; line-height: 1; padding: 20px 0 5px }
 .pay_way li .pay_mn { display: table-cell; width: 196px; height: 40px; vertical-align: middle; line-height: 1.2; padding-bottom: 12px; font-size: 14px; text-align: center }

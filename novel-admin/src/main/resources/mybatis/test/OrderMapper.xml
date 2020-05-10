@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.java2nb.test.dao.OrderDao">
+<mapper namespace="com.lyqiaofu.test.dao.OrderDao">
 
-	<select id="get" resultType="com.java2nb.test.domain.OrderDO">
+	<select id="get" resultType="com.lyqiaofu.test.domain.OrderDO">
 		select `id`,`fb_merchant_code`,`merchant_order_sn`,`order_sn`,`platform_order_no`,`trade_no`,`order_state`,`fn_coupon`,`red_packet`,`total_fee`,`order_price`,`fee`,`body`,`attach`,`store_id`,`cashier_id`,`device_no`,`user_id`,`user_logon_id`,`pay_time`,`pay_channel`,`no_cash_coupon_fee`,`cash_coupon_fee`,`cash_fee`,`sign`,`options`,`create_time`,`push_time`,`push_ip`,`mcht_id`,`sn` from fb_order where id = #{value}
 	</select>
 
-	<select id="list" resultType="com.java2nb.test.domain.OrderDO">
+	<select id="list" resultType="com.lyqiaofu.test.domain.OrderDO">
 		select `id`,`fb_merchant_code`,`merchant_order_sn`,`order_sn`,`platform_order_no`,`trade_no`,`order_state`,`fn_coupon`,`red_packet`,`total_fee`,`order_price`,`fee`,`body`,`attach`,`store_id`,`cashier_id`,`device_no`,`user_id`,`user_logon_id`,`pay_time`,`pay_channel`,`no_cash_coupon_fee`,`cash_coupon_fee`,`cash_fee`,`sign`,`options`,`create_time`,`push_time`,`push_ip`,`mcht_id`,`sn` from fb_order
         <where>  
 		  		  <if test="id != null and id != ''"> and id = #{id} </if>
@@ -92,7 +92,7 @@
 		  		</where>
 	</select>
 	 
-	<insert id="save" parameterType="com.java2nb.test.domain.OrderDO" useGeneratedKeys="true" keyProperty="id">
+	<insert id="save" parameterType="com.lyqiaofu.test.domain.OrderDO" useGeneratedKeys="true" keyProperty="id">
 		insert into fb_order
 		(
 			`fb_merchant_code`, 
@@ -161,7 +161,7 @@
 		)
 	</insert>
 
-	<insert id="saveSelective" parameterType="com.java2nb.test.domain.OrderDO" useGeneratedKeys="true" keyProperty="id">
+	<insert id="saveSelective" parameterType="com.lyqiaofu.test.domain.OrderDO" useGeneratedKeys="true" keyProperty="id">
 		insert into fb_order
 		(
 					<if test="id != null"> `id`,  </if>
@@ -232,7 +232,7 @@
 				)
 	</insert>
 	 
-	<update id="update" parameterType="com.java2nb.test.domain.OrderDO">
+	<update id="update" parameterType="com.lyqiaofu.test.domain.OrderDO">
 		update fb_order 
 		<set>
 			<if test="fbMerchantCode != null">`fb_merchant_code` = #{fbMerchantCode}, </if>

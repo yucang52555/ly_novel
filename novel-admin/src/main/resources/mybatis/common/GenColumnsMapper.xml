@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.java2nb.common.dao.GenColumnsDao">
+<mapper namespace="com.lyqiaofu.common.dao.GenColumnsDao">
 
-	<select id="get" resultType="com.java2nb.common.domain.GenColumnsDO">
+	<select id="get" resultType="com.lyqiaofu.common.domain.GenColumnsDO">
 		select `id`,`table_name`,`column_name`,`column_type`,`java_type`,`column_comment`,`column_sort`,`column_label`,`page_type`,`is_required`,`dict_type` from sys_gen_columns where id = #{value}
 	</select>
 
-	<select id="list" resultType="com.java2nb.common.domain.GenColumnsDO">
+	<select id="list" resultType="com.lyqiaofu.common.domain.GenColumnsDO">
 		select `id`,`table_name`,`column_name`,`column_type`,`java_type`,`column_comment`,`column_sort`,`column_label`,`page_type`,`is_required`,`dict_type` from sys_gen_columns
 		<where>
 			<if test="id != null and id != ''"> and id = #{id} </if>
@@ -52,7 +52,7 @@
 		</where>
 	</select>
 
-	<insert id="save" parameterType="com.java2nb.common.domain.GenColumnsDO" useGeneratedKeys="true" keyProperty="id">
+	<insert id="save" parameterType="com.lyqiaofu.common.domain.GenColumnsDO" useGeneratedKeys="true" keyProperty="id">
 		insert into sys_gen_columns
 		(
 			`table_name`,
@@ -81,7 +81,7 @@
 		)
 	</insert>
 
-	<update id="update" parameterType="com.java2nb.common.domain.GenColumnsDO">
+	<update id="update" parameterType="com.lyqiaofu.common.domain.GenColumnsDO">
 		update sys_gen_columns
 		<set>
 			<if test="tableName != null">`table_name` = #{tableName}, </if>

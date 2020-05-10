@@ -1,16 +1,16 @@
-java2nb:
-  uploadPath: /var/java2nb/uploaded_files/
+lyqiaofu:
+  uploadPath: /var/lyqiaofu/uploaded_files/
 logging:
   level:
     root: error
-    com.java2nb: info
+    com.lyqiaofu: info
 spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/java2nb?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
-    username: java2nb
-    password: java2nb1019
+    url: jdbc:mysql://127.0.0.1:3306/lyqiaofu?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: hongfeng123456
     initialSize: 1
     minIdle: 3
     maxActive: 20
@@ -34,7 +34,7 @@ spring:
     # 合并多个DruidDataSource的监控数据
     #useGlobalDataSourceStat: true
   redis:
-      host: 127.0.0.1
+      host: 47.244.9.82
       port: 6379
       password:
       # 连接超时时间（毫秒）

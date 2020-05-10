@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.java2nb.system.dao.RoleDataPermDao">
+<mapper namespace="com.lyqiaofu.system.dao.RoleDataPermDao">
 
-	<select id="get" resultType="com.java2nb.system.domain.RoleDataPermDO">
+	<select id="get" resultType="com.lyqiaofu.system.domain.RoleDataPermDO">
 		select `id`,`role_id`,`perm_id` from sys_role_data_perm where id = #{value}
 	</select>
 
-	<select id="list" resultType="com.java2nb.system.domain.RoleDataPermDO">
+	<select id="list" resultType="com.lyqiaofu.system.domain.RoleDataPermDO">
 		select `id`,`role_id`,`perm_id` from sys_role_data_perm
         <where>  
 		  		  <if test="id != null and id != ''"> and id = #{id} </if>
@@ -36,7 +36,7 @@
 		  		</where>
 	</select>
 	 
-	<insert id="save" parameterType="com.java2nb.system.domain.RoleDataPermDO" useGeneratedKeys="true" keyProperty="id">
+	<insert id="save" parameterType="com.lyqiaofu.system.domain.RoleDataPermDO" useGeneratedKeys="true" keyProperty="id">
 		insert into sys_role_data_perm
 		(
 			`role_id`, 
@@ -49,7 +49,7 @@
 		)
 	</insert>
 
-	<insert id="saveSelective" parameterType="com.java2nb.system.domain.RoleDataPermDO" useGeneratedKeys="true" keyProperty="id">
+	<insert id="saveSelective" parameterType="com.lyqiaofu.system.domain.RoleDataPermDO" useGeneratedKeys="true" keyProperty="id">
 		insert into sys_role_data_perm
 		(
 					<if test="id != null"> `id`,  </if>
@@ -64,7 +64,7 @@
 				)
 	</insert>
 	 
-	<update id="update" parameterType="com.java2nb.system.domain.RoleDataPermDO">
+	<update id="update" parameterType="com.lyqiaofu.system.domain.RoleDataPermDO">
 		update sys_role_data_perm 
 		<set>
 			<if test="roleId != null">`role_id` = #{roleId}, </if>

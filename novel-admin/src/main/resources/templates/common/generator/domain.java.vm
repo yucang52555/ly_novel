@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.java2nb.common.jsonserializer.LongToStringSerializer;
+import com.lyqiaofu.common.jsonserializer.LongToStringSerializer;
 
 
 import org.springframework.format.annotation.DateTimeFormat;

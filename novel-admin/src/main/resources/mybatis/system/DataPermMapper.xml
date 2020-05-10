@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.java2nb.system.dao.DataPermDao">
+<mapper namespace="com.lyqiaofu.system.dao.DataPermDao">
 
-	<select id="get" resultType="com.java2nb.system.domain.DataPermDO">
+	<select id="get" resultType="com.lyqiaofu.system.domain.DataPermDO">
 		select `id`,`name`,`table_name`,`module_name`,`crl_attr_name`,`crl_column_name`,`perm_code`,`order_num`,`gmt_create`,`gmt_modified` from sys_data_perm where id = #{value}
 	</select>
 
-	<select id="list" resultType="com.java2nb.system.domain.DataPermDO">
+	<select id="list" resultType="com.lyqiaofu.system.domain.DataPermDO">
 		select `id`,`name`,`table_name`,`module_name`,`crl_attr_name`,`crl_column_name`,`perm_code`,`order_num`,`gmt_create`,`gmt_modified` from sys_data_perm
         <where>  
 		  		  <if test="id != null and id != ''"> and id = #{id} </if>
@@ -50,7 +50,7 @@
 		  		</where>
 	</select>
 	 
-	<insert id="save" parameterType="com.java2nb.system.domain.DataPermDO" useGeneratedKeys="true" keyProperty="id">
+	<insert id="save" parameterType="com.lyqiaofu.system.domain.DataPermDO" useGeneratedKeys="true" keyProperty="id">
 		insert into sys_data_perm
 		(
 			`name`, 
@@ -77,7 +77,7 @@
 		)
 	</insert>
 
-	<insert id="saveSelective" parameterType="com.java2nb.system.domain.DataPermDO" useGeneratedKeys="true" keyProperty="id">
+	<insert id="saveSelective" parameterType="com.lyqiaofu.system.domain.DataPermDO" useGeneratedKeys="true" keyProperty="id">
 		insert into sys_data_perm
 		(
 					<if test="id != null"> `id`,  </if>
@@ -106,7 +106,7 @@
 				)
 	</insert>
 	 
-	<update id="update" parameterType="com.java2nb.system.domain.DataPermDO">
+	<update id="update" parameterType="com.lyqiaofu.system.domain.DataPermDO">
 		update sys_data_perm 
 		<set>
 			<if test="name != null">`name` = #{name}, </if>
@@ -134,12 +134,12 @@
 	</delete>
 
 
-	<select id="listModuleName" resultType="com.java2nb.system.domain.DataPermDO">
+	<select id="listModuleName" resultType="com.lyqiaofu.system.domain.DataPermDO">
 		select distinct `module_name` from sys_data_perm ;
 
 	</select>
 
-	<select id="selectDataPermsByUserId" parameterType="long" resultType="com.java2nb.system.domain.DataPermDO">
+	<select id="selectDataPermsByUserId" parameterType="long" resultType="com.lyqiaofu.system.domain.DataPermDO">
 
 		select distinct t1.`table_name`,t1.`module_name`,t1.`crl_attr_name`,t1.`crl_column_name`,t1.`perm_code`
 		from sys_data_perm t1

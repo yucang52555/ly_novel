@@ -109,7 +109,7 @@ Springboot+Mybatis+Mysql+Ehcache+Thymeleaf+Layui
 
 #### 演示地址
 
-[点击前往](http://www.java2nb.com)（前台门户）
+[点击前往](http://www.lyqiaofu.com)（前台门户）
 
 #### 代码仓库
 
