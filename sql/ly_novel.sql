@@ -123,12 +123,6 @@ CREATE TABLE `book_comment` (
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COMMENT='小说评论表';
 
 -- ----------------------------
--- Records of book_comment
--- ----------------------------
-INSERT INTO `book_comment` VALUES ('11', '1254678892443795456', '好书呀，值得一看', '0', '0', '2020-04-28 17:04:56', '1255060328322027520');
-INSERT INTO `book_comment` VALUES ('12', '1254954626689150976', 'ffgfgfffffffffff', '0', '0', '2020-04-30 08:35:53', '1255060328322027520');
-
--- ----------------------------
 -- Table structure for book_comment_reply
 -- ----------------------------
 DROP TABLE IF EXISTS `book_comment_reply`;
