@@ -12,11 +12,12 @@
 
 #### 项目结构
 
-ly_novel -- 父工程
-├── novel-common -- 通用模块
-├── novel-front -- 前台门户系统
-├── novel-crawl -- 爬虫管理系统
-└── novel-admin -- 后台管理系统
+ly_novel -- 父工程  
+├── novel-common -- 通用模块  
+├── novel-front -- 前台门户系统  
+├── novel-crawl -- 爬虫管理系统  
+└── novel-admin -- 后台管理系统  
+
 
 #### 技术选型
 Springboot+Mybatis+Mysql+Ehcache+Thymeleaf+Layui
