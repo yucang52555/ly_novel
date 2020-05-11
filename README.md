@@ -94,4 +94,4 @@ Springboot+Mybatis+Mysql+Ehcache+Thymeleaf+Layui
 
 #### QQ交流群
 
-![mini-code](./assets/指尖天下群聊二维码.png)
+![mini-code](./assets/qq-group.png)
