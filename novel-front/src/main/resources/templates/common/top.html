@@ -2,10 +2,10 @@
     <div class="topBar" style="display: none">
         <div class="box_center cf">
             <div class="top_l">
-                <a href="/" class="on" th:text="#{website.name}"></a><i class="line">|</i><a
-                    href="/?m=2">手机女生版</a><i class="line">|</i><a
-                    href="/?m=1">手机男生版</a><i class="line">|</i><a
-                    href="/">客户端下载</a>
+                <a href="/" class="on" th:text="#{website.name}"></a> <i class="line">|</i>
+                <a href="/?m=2">手机女生版</a> <i class="line">|</i>
+                <a href="/?m=1">手机男生版</a> <i class="line">|</i>
+                <a href="/">客户端下载</a>
             </div>
             <div class="top_r">
                 <div class="top_nearread">
@@ -42,8 +42,10 @@
                 <li th:class="${navType}==0?'on':''"><a href="/">首页</a></li>
                 <li th:class="${navType}==1?'on':''"><a href="/book/bookclass.html">全部作品</a></li>
                 <li th:class="${navType}==2?'on':''"><a href="/book/book_ranking.html">排行榜</a></li>
-                <!--<li class=""><a href="javascript:layer.alert('待开通，敬请期待！');">充值</a></li>
-                <li><a href="javascript:layer.alert('待开通，敬请期待！');">作家专区</a></li>-->
+                <!--
+                <li class=""><a href="javascript:layer.alert('待开通，敬请期待！');">充值</a></li>
+                <li><a href="javascript:layer.alert('待开通，敬请期待！');">作家专区</a></li>
+                -->
 
             </ul>
         </div>
