@@ -1,5 +1,5 @@
 #!/bin/bash
-APP_NAME=lynovel-latest.jar
+APP_NAME=novel-front-1.1.0.jar
 
 usage() {
     echo "用法: sh lynovel.sh [start(启动)|stop(停止)|restart(重启)|status(状态)]"
