@@ -196,7 +196,7 @@ public class BookServiceImpl implements BookService {
     public Book queryBookByBookNameAndAuthorName(String bookName, String authorName) {
         List<Book> books = bookMapper.selectMany(select(BookDynamicSqlSupport.id).from(BookDynamicSqlSupport.book)
                 .where(BookDynamicSqlSupport.bookName, isEqualTo(bookName))
-                .and(BookDynamicSqlSupport.authorName, isEqualTo(authorName))
+//                .and(BookDynamicSqlSupport.authorName, isEqualTo(authorName))
                 .build()
                 .render(RenderingStrategies.MYBATIS3));
 

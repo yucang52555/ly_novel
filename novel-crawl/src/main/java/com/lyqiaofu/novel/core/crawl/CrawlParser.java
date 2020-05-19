@@ -56,6 +56,8 @@ public class CrawlParser {
                             String picUrl = picUrlMatch.group(1);
                             //设置封面图片路径
                             book.setPicUrl(picUrl);
+                        } else {
+                            book.setPicUrl("");
                         }
                     }
                     if (StringUtils.isNotBlank(ruleBean.getScorePatten())) {
