@@ -58,8 +58,6 @@ public class UserController extends BaseController {
         data.put("token", jwtTokenUtil.generateToken(userDetails));
 
         return ResultBean.ok(data);
-
-
     }
 
     /**
