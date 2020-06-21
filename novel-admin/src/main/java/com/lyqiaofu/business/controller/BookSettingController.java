@@ -1,5 +1,7 @@
 package com.lyqiaofu.business.controller;
 
+import com.lyqiaofu.business.domain.BookSettingDO;
+import com.lyqiaofu.business.service.BookSettingService;
 import com.lyqiaofu.common.utils.PageBean;
 import com.lyqiaofu.common.utils.Query;
 import com.lyqiaofu.common.utils.R;
@@ -21,105 +23,28 @@ import java.util.Map;
  * @Date  2020/6/18 14:19
  **/
 @Controller
-@RequestMapping("/test/order")
+@RequestMapping("/business/book/setting")
 public class BookSettingController {
     @Autowired
-    private OrderService orderService;
+    private BookSettingService bookSettingService;
 
     @GetMapping()
-    @RequiresPermissions("test:order:order")
+    @RequiresPermissions("business:book:setting")
     String Order() {
-        return "test/order/order";
+        return "business/book/setting";
     }
 
-    @ApiOperation(value = "获取付呗-订单信息表列表", notes = "获取付呗-订单信息表列表")
+    @ApiOperation(value = "获取书籍-设置列表", notes = "获取书籍-设置列表")
     @ResponseBody
     @GetMapping("/list")
-    @RequiresPermissions("test:order:order")
+    @RequiresPermissions("business:book:setting")
     public R list(@RequestParam Map<String, Object> params) {
         //查询列表数据
         Query query = new Query(params);
-        List<OrderDO> orderList = orderService.list(query);
-        int total = orderService.count(query);
-        PageBean pageBean = new PageBean(orderList, total);
+        List<BookSettingDO> bookSettingList = bookSettingService.list(params);
+        int total = bookSettingService.count(query);
+        PageBean pageBean = new PageBean(bookSettingList, total);
         return R.ok().put("data", pageBean);
-    }
-
-    @ApiOperation(value = "新增付呗-订单信息表页面", notes = "新增付呗-订单信息表页面")
-    @GetMapping("/add")
-    @RequiresPermissions("test:order:add")
-    String add() {
-        return "test/order/add";
-    }
-
-    @ApiOperation(value = "修改付呗-订单信息表页面", notes = "修改付呗-订单信息表页面")
-    @GetMapping("/edit/{id}")
-    @RequiresPermissions("test:order:edit")
-    String edit(@PathVariable("id") Long id, Model model) {
-            OrderDO order = orderService.get(id);
-        model.addAttribute("order", order);
-        return "test/order/edit";
-    }
-
-    @ApiOperation(value = "查看付呗-订单信息表页面", notes = "查看付呗-订单信息表页面")
-    @GetMapping("/detail/{id}")
-    @RequiresPermissions("test:order:detail")
-    String detail(@PathVariable("id") Long id, Model model) {
-			OrderDO order = orderService.get(id);
-        model.addAttribute("order", order);
-        return "test/order/detail";
-    }
-
-    /**
-     * 保存
-     */
-    @ApiOperation(value = "新增付呗-订单信息表", notes = "新增付呗-订单信息表")
-    @ResponseBody
-    @PostMapping("/save")
-    @RequiresPermissions("test:order:add")
-    public R save( OrderDO order) {
-        if (orderService.save(order) > 0) {
-            return R.ok();
-        }
-        return R.error();
-    }
-
-    /**
-     * 修改
-     */
-    @ApiOperation(value = "修改付呗-订单信息表", notes = "修改付呗-订单信息表")
-    @ResponseBody
-    @RequestMapping("/update")
-    @RequiresPermissions("test:order:edit")
-    public R update( OrderDO order) {
-            orderService.update(order);
-        return R.ok();
-    }
-
-    /**
-     * 删除
-     */
-    @ApiOperation(value = "删除付呗-订单信息表", notes = "删除付呗-订单信息表")
-    @PostMapping("/remove")
-    @ResponseBody
-    @RequiresPermissions("test:order:remove")
-    public R remove( Long id) {
-        if (orderService.remove(id) > 0) {
-            return R.ok();
-        }
-        return R.error();
-    }
-
-    /**
-     * 删除
-     */
-    @ApiOperation(value = "批量删除付呗-订单信息表", notes = "批量删除付呗-订单信息表")
-    @PostMapping("/batchRemove")
-    @ResponseBody
-    @RequiresPermissions("test:order:batchRemove")
-    public R remove(@RequestParam("ids[]") Long[] ids) {
-            orderService.batchRemove(ids);
-        return R.ok();
     }
 
 }

@@ -26,30 +26,30 @@ public class DataPermDO implements Serializable {
 
 	
 	//
-		//java中的long能表示的范围比js中number大,也就意味着部分数值在js中存不下(变成不准确的值)
+	//java中的long能表示的范围比js中number大,也就意味着部分数值在js中存不下(变成不准确的值)
 	//所以通过序列化成字符串来解决
 	@JsonSerialize(using = LongToStringSerializer.class)
-			private Long id;
+	private Long id;
 	//权限名称
-			private String name;
+	private String name;
 	//数据表名称
-			private String tableName;
+	private String tableName;
 	//所属模块
-			private String moduleName;
+	private String moduleName;
 	//用户权限控制属性名
-			private String crlAttrName;
+	private String crlAttrName;
 	//数据表权限控制列名
-			private String crlColumnName;
+	private String crlColumnName;
 	//权限code，all_开头表示查看所有数据的权限，sup_开头表示查看下级数据的权限，own_开头表示查看本级数据的权限
-			private String permCode;
+	private String permCode;
 	//排序
-			private Integer orderNum;
+	private Integer orderNum;
 	//创建时间
-			@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-		private Date gmtCreate;
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	private Date gmtCreate;
 	//修改时间
-			@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-		private Date gmtModified;
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	private Date gmtModified;
 
 	/**
 	 * 设置：

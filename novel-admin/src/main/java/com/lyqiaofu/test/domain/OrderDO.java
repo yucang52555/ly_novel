@@ -24,81 +24,80 @@ import java.util.Date;
 public class OrderDO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	
 	//主键
-		//java中的long能表示的范围比js中number大,也就意味着部分数值在js中存不下(变成不准确的值)
+	//java中的long能表示的范围比js中number大,也就意味着部分数值在js中存不下(变成不准确的值)
 	//所以通过序列化成字符串来解决
 	@JsonSerialize(using = LongToStringSerializer.class)
-			private Long id;
+	private Long id;
 	//付呗商户号
-			private String fbMerchantCode;
+	private String fbMerchantCode;
 	//第三方商户的订单号
-			private String merchantOrderSn;
+	private String merchantOrderSn;
 	//付呗订单号
-			private String orderSn;
+	private String orderSn;
 	//平台方订单号
-			private String platformOrderNo;
+	private String platformOrderNo;
 	//商户单号
-			private String tradeNo;
+	private String tradeNo;
 	//订单状态，1：未支付，2：支付成功，3：支付失败，4：支付取消
-			private Integer orderState;
+	private Integer orderState;
 	//蜂鸟优惠卷抵扣
-			private Double fnCoupon;
+	private Double fnCoupon;
 	//红包抵扣
-			private BigDecimal redPacket;
+	private BigDecimal redPacket;
 	//实收金额(元)
-			private BigDecimal totalFee;
+	private BigDecimal totalFee;
 	//订单金额
-			private BigDecimal orderPrice;
+	private BigDecimal orderPrice;
 	//手续费(元)
-			private BigDecimal fee;
+	private BigDecimal fee;
 	//对商品或交易的描述
-			private String body;
+	private String body;
 	//附加数据
-			private String attach;
+	private String attach;
 	//付呗系统的门店id
-		//java中的long能表示的范围比js中number大,也就意味着部分数值在js中存不下(变成不准确的值)
+	//java中的long能表示的范围比js中number大,也就意味着部分数值在js中存不下(变成不准确的值)
 	//所以通过序列化成字符串来解决
 	@JsonSerialize(using = LongToStringSerializer.class)
-			private Long storeId;
+	private Long storeId;
 	//付呗系统的收银员id
-		//java中的long能表示的范围比js中number大,也就意味着部分数值在js中存不下(变成不准确的值)
+	//java中的long能表示的范围比js中number大,也就意味着部分数值在js中存不下(变成不准确的值)
 	//所以通过序列化成字符串来解决
 	@JsonSerialize(using = LongToStringSerializer.class)
-			private Long cashierId;
+	private Long cashierId;
 	//设备终端号
-			private String deviceNo;
+	private String deviceNo;
 	//微信顾客支付授权的“open_id”或者支付宝顾客的“buyer_user_id”
-			private String userId;
+	private String userId;
 	//支付宝顾客的账号
-			private String userLogonId;
+	private String userLogonId;
 	//交易成功的时间
-			@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-		private Date payTime;
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	private Date payTime;
 	//支付通道:1微信、2支付宝、3银联
-			private Integer payChannel;
+	private Integer payChannel;
 	//免充值代金券金额(元)
-			private BigDecimal noCashCouponFee;
+	private BigDecimal noCashCouponFee;
 	//预充值代金券金额(元)
-			private BigDecimal cashCouponFee;
+	private BigDecimal cashCouponFee;
 	//顾客实际支付金额(元)
-			private BigDecimal cashFee;
+	private BigDecimal cashFee;
 	//签名
-			private String sign;
+	private String sign;
 	//其它选项
-			private String options;
+	private String options;
 	//创建时间
-			@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-		private Date createTime;
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	private Date createTime;
 	//推送时间
-			@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-		private Date pushTime;
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	private Date pushTime;
 	//推送IP
-			private String pushIp;
+	private String pushIp;
 	//商户id
-			private BigDecimal mchtId;
+	private BigDecimal mchtId;
 	//QR编号
-			private String sn;
+	private String sn;
 
 	/**
 	 * 设置：主键
