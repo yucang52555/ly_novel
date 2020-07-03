@@ -47,4 +47,43 @@ public class BookSettingController {
         return R.ok().put("data", pageBean);
     }
 
+    @ApiOperation(value = "新增书籍-设置列表页面", notes = "新增书籍-设置列表页面")
+    @GetMapping("/add")
+    @RequiresPermissions("business:booksetting:add")
+    String add() {
+        return "business/booksetting/add";
+    }
+
+    @ApiOperation(value = "修改书籍-设置列表页面", notes = "修改书籍-设置列表页面")
+    @GetMapping("/edit/{id}")
+    @RequiresPermissions("business:booksetting:edit")
+    String edit(@PathVariable("id") Long id, Model model) {
+        BookSettingDO bookSetting = bookSettingService.get(id);
+        model.addAttribute("bookSetting", bookSetting);
+        return "business/booksetting/edit";
+    }
+
+    @ApiOperation(value = "查看付呗-订单信息表页面", notes = "查看付呗-订单信息表页面")
+    @GetMapping("/detail/{id}")
+    @RequiresPermissions("business:booksetting:detail")
+    String detail(@PathVariable("id") Long id, Model model) {
+        BookSettingDO bookSetting = bookSettingService.get(id);
+        model.addAttribute("bookSetting", bookSetting);
+        return "business/booksetting/detail";
+    }
+
+    /**
+     * 删除
+     */
+    @ApiOperation(value = "删除付呗-订单信息表", notes = "删除付呗-订单信息表")
+    @PostMapping("/remove")
+    @ResponseBody
+    @RequiresPermissions("test:order:remove")
+    public R remove( Long id) {
+        if (bookSettingService.remove(id) > 0) {
+            return R.ok();
+        }
+        return R.error();
+    }
+
 }

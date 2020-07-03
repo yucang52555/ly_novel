@@ -26,4 +26,12 @@
 			 <if test="type != null and type != ''"> and type = #{type} </if>
 		 </where>
 	</select>
+
+	<select id="get" resultType="com.lyqiaofu.business.domain.BookSettingDO">
+		select `id`,`book_id`,`sort`,`type` from book_setting where id = #{value}
+	</select>
+
+	<delete id="remove">
+		delete from book_setting where id = #{value}
+	</delete>
 </mapper>

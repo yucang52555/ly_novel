@@ -25,4 +25,14 @@ public class BookSettingServiceImpl implements BookSettingService {
     public int count(Query query) {
         return bookSettingDao.count(query);
     }
+
+    @Override
+    public BookSettingDO get(Long id) {
+        return bookSettingDao.get(id);
+    }
+
+    @Override
+    public int remove(Long id) {
+        return bookSettingDao.remove(id);
+    }
 }

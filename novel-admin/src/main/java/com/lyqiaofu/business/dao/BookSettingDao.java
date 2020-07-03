@@ -14,4 +14,9 @@ public interface BookSettingDao {
 	List<BookSettingDO> list(Map<String, Object> map);
 
 	int count(Map<String, Object> map);
+
+    BookSettingDO get(Long id);
+
+	int remove(Long id);
+
 }

@@ -26,4 +26,18 @@ public interface BookSettingService {
      * @return
      */
     int count(Query query);
+
+    /**
+     * @Desc 获取书籍展示设置
+     * @Author ktc
+     * @Date  2020/7/1 10:17
+     **/
+    BookSettingDO get(Long id);
+
+    /**
+     * @Desc 删除书籍展示设置记录
+     * @Author ktc
+     * @Date  2020/7/1 10:18
+     **/
+    int remove(Long id);
 }
