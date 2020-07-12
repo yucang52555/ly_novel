@@ -1,7 +1,7 @@
 package com.lyqiaofu.business.controller;
 
-import com.lyqiaofu.business.domain.BookDO;
-import com.lyqiaofu.business.service.BookService;
+import com.lyqiaofu.business.domain.BookIndexDO;
+import com.lyqiaofu.business.service.BookIndexService;
 import com.lyqiaofu.common.utils.PageBean;
 import com.lyqiaofu.common.utils.Query;
 import com.lyqiaofu.common.utils.R;
@@ -14,40 +14,37 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Map;
 
-@RequestMapping("/business/book")
+@RequestMapping("/business/bookIndex")
 @Controller
-public class BookController {
+public class BookIndexController {
 
 	@Autowired
-	BookService bookService;
+	BookIndexService bookIndexService;
 
 	@GetMapping()
-	@RequiresPermissions("business:book:book")
+	@RequiresPermissions("business:bookIndex:book")
 	String Order() {
-		return "business/book/book";
+		return "business/bookIndex/book";
 	}
 
-	@ApiOperation(value = "获取书籍列表", notes = "获取书籍列表")
+	@ApiOperation(value = "获取章节列表", notes = "获取章节列表")
 	@ResponseBody
 	@GetMapping("/list")
-	@RequiresPermissions("business:book:book")
+	@RequiresPermissions("business:bookIndex:book")
 	R list(@RequestParam Map<String, Object> params) {
 		Query query = new Query(params);
-		List<BookDO> bookList = bookService.list(params);
-		int total = bookService.count(query);
+		List<BookIndexDO> bookList = bookIndexService.list(params);
+		int total = bookIndexService.count(query);
 		PageBean pageBean = new PageBean(bookList, total);
 		return R.ok().put("data", pageBean);
 	}
 
-	/**
-	 * 删除
-	 */
-	@ApiOperation(value = "删除书籍数据", notes = "删除书籍数据")
+	@ApiOperation(value = "删除章节数据", notes = "删除章节数据")
 	@PostMapping("/remove")
 	@ResponseBody
-	@RequiresPermissions("business:book:remove")
+	@RequiresPermissions("business:bookIndex:remove")
 	public R remove(String bookId) {
-		if (bookService.remove(bookId) > 0) {
+		if (bookIndexService.remove(bookId) > 0) {
 			return R.ok();
 		}
 		return R.error();

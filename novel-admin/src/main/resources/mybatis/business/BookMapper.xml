@@ -8,7 +8,6 @@
 			`id`,`cat_name`,`book_name`,`author_name`,`book_desc`,`visit_count`,
 			`word_count`,`comment_count` from book
         <where>  
-		  <if test="id != null and id != ''"> and id = #{id} </if>
 		  <if test="catName != null and catName != ''"> and cat_name = #{catName} </if>
 		  <if test="bookName != null and bookName != ''"> and book_name = #{bookName} </if>
 		  <if test="authorName != null and authorName != ''"> and author_name = #{authorName} </if>
@@ -22,11 +21,14 @@
 	<select id="count" resultType="int">
 		select count(*) from book
 		<where>
-			<if test="id != null and id != ''"> and id = #{id} </if>
 			<if test="catName != null and catName != ''"> and cat_name = #{catName} </if>
 			<if test="bookName != null and bookName != ''"> and book_name = #{bookName} </if>
 			<if test="authorName != null and authorName != ''"> and author_name = #{authorName} </if>
 		</where>
 	</select>
+
+	<delete id="remove">
+		delete from book where id = #{bookId}
+	</delete>
 
 </mapper>

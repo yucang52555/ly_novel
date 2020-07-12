@@ -24,4 +24,9 @@ public class BookServiceImpl implements BookService {
     public int count(Map<String, Object> map) {
         return bookDao.count(map);
     }
+
+    @Override
+    public int remove(String bookId) {
+        return bookDao.remove(bookId);
+    }
 }

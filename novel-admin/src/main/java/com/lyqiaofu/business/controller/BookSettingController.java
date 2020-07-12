@@ -63,7 +63,7 @@ public class BookSettingController {
         return "business/booksetting/edit";
     }
 
-    @ApiOperation(value = "查看付呗-订单信息表页面", notes = "查看付呗-订单信息表页面")
+    @ApiOperation(value = "查看书籍详情-设置列表", notes = "查看书籍详情-设置列表")
     @GetMapping("/detail/{id}")
     @RequiresPermissions("business:booksetting:detail")
     String detail(@PathVariable("id") Long id, Model model) {
@@ -75,10 +75,10 @@ public class BookSettingController {
     /**
      * 删除
      */
-    @ApiOperation(value = "删除付呗-订单信息表", notes = "删除付呗-订单信息表")
+    @ApiOperation(value = "删除付呗-订单信息表", notes = "删除书籍详情-设置列表")
     @PostMapping("/remove")
     @ResponseBody
-    @RequiresPermissions("test:order:remove")
+    @RequiresPermissions("business:booksetting:remove")
     public R remove( Long id) {
         if (bookSettingService.remove(id) > 0) {
             return R.ok();
