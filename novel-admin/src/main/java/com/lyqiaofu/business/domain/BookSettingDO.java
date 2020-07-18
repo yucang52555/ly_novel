@@ -25,6 +25,8 @@ public class BookSettingDO implements Serializable {
     private String sort;
     //类型，0：轮播图，1：顶部小说栏设置，2：本周强推，3：热门推荐，4：精品推荐
     private Integer type;
+    //类型描述
+    private Integer typeName;
 
     public Long getId() {
         return id;
@@ -72,5 +74,13 @@ public class BookSettingDO implements Serializable {
 
     public void setType(Integer type) {
         this.type = type;
+    }
+
+    public Integer getTypeName() {
+        return typeName;
+    }
+
+    public void setTypeName(Integer typeName) {
+        this.typeName = typeName;
     }
 }
