@@ -23,13 +23,8 @@ public class BookController {
 
 	@GetMapping()
 	@RequiresPermissions("business:book:book")
-<<<<<<< HEAD
 	String book() {
-		return "business/book/book";
-=======
-	String Order() {
 		return "business/book/book/book";
->>>>>>> 0b3706a0f828eef233936de786f07a22e2a3f509
 	}
 
 	@ApiOperation(value = "获取书籍列表", notes = "获取书籍列表")
