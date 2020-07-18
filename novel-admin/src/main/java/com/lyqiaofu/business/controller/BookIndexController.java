@@ -23,7 +23,7 @@ public class BookIndexController {
 
 	@GetMapping()
 	@RequiresPermissions("business:bookIndex:book")
-	String Order() {
+	String bookIndex() {
 		return "business/bookIndex/book";
 	}
 

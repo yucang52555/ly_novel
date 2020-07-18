@@ -23,7 +23,7 @@ public class BookCommentController {
 
 	@GetMapping()
 	@RequiresPermissions("business:bookComment:book")
-	String Order() {
+	String comment() {
 		return "business/bookComment/book";
 	}
 

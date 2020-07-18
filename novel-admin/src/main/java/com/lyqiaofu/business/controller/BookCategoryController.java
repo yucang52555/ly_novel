@@ -1,9 +1,7 @@
 package com.lyqiaofu.business.controller;
 
 import com.lyqiaofu.business.domain.BookCategoryDO;
-import com.lyqiaofu.business.domain.BookIndexDO;
 import com.lyqiaofu.business.service.BookCategoryService;
-import com.lyqiaofu.business.service.BookIndexService;
 import com.lyqiaofu.common.utils.PageBean;
 import com.lyqiaofu.common.utils.Query;
 import com.lyqiaofu.common.utils.R;
@@ -25,7 +23,7 @@ public class BookCategoryController {
 
 	@GetMapping()
 	@RequiresPermissions("business:bookCategory:book")
-	String Order() {
+	String category() {
 		return "business/bookCategory/book";
 	}
 

@@ -30,7 +30,7 @@ public class BookSettingController {
 
     @GetMapping()
     @RequiresPermissions("business:book:setting")
-    String Order() {
+    String bookSetting() {
         return "business/book/setting";
     }
 

@@ -1,7 +1,6 @@
 package com.lyqiaofu.business.dao;
 
 import com.lyqiaofu.business.domain.BookCategoryDO;
-import com.lyqiaofu.business.domain.BookIndexDO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
