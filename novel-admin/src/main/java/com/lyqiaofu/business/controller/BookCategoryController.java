@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Map;
 
-@RequestMapping("/business/bookCategory")
+@RequestMapping("/business/book/category")
 @Controller
 public class BookCategoryController {
 
@@ -22,15 +22,15 @@ public class BookCategoryController {
 	BookCategoryService bookCategoryService;
 
 	@GetMapping()
-	@RequiresPermissions("business:bookCategory:book")
+	@RequiresPermissions("business:book:category")
 	String category() {
-		return "business/bookCategory/book";
+		return "business/book/category/category";
 	}
 
 	@ApiOperation(value = "获取章节列表", notes = "获取章节列表")
 	@ResponseBody
 	@GetMapping("/list")
-	@RequiresPermissions("business:bookCategory:book")
+	@RequiresPermissions("business:book:category:list")
 	R list(@RequestParam Map<String, Object> params) {
 		Query query = new Query(params);
 		List<BookCategoryDO> bookCategoryList = bookCategoryService.list(params);
@@ -42,7 +42,7 @@ public class BookCategoryController {
 	@ApiOperation(value = "删除章节数据", notes = "删除章节数据")
 	@PostMapping("/remove")
 	@ResponseBody
-	@RequiresPermissions("business:bookCategory:remove")
+	@RequiresPermissions("business:book:category:remove")
 	public R remove(String id) {
 		if (bookCategoryService.remove(id) > 0) {
 			return R.ok();

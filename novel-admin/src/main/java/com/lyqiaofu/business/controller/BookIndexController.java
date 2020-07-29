@@ -22,15 +22,15 @@ public class BookIndexController {
 	BookIndexService bookIndexService;
 
 	@GetMapping()
-	@RequiresPermissions("business:bookIndex:book")
+	@RequiresPermissions("business:book:index")
 	String bookIndex() {
-		return "business/bookIndex/book";
+		return "business/book/index/index";
 	}
 
 	@ApiOperation(value = "获取章节列表", notes = "获取章节列表")
 	@ResponseBody
 	@GetMapping("/list")
-	@RequiresPermissions("business:bookIndex:book")
+	@RequiresPermissions("business:book:index:list")
 	R list(@RequestParam Map<String, Object> params) {
 		Query query = new Query(params);
 		List<BookIndexDO> bookList = bookIndexService.list(params);
@@ -42,7 +42,7 @@ public class BookIndexController {
 	@ApiOperation(value = "删除章节数据", notes = "删除章节数据")
 	@PostMapping("/remove")
 	@ResponseBody
-	@RequiresPermissions("business:bookIndex:remove")
+	@RequiresPermissions("business:book:index:remove")
 	public R remove(String bookId) {
 		if (bookIndexService.remove(bookId) > 0) {
 			return R.ok();

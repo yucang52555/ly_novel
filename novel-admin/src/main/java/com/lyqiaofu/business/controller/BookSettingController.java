@@ -37,7 +37,7 @@ public class BookSettingController {
     @ApiOperation(value = "获取书籍-设置列表", notes = "获取书籍-设置列表")
     @ResponseBody
     @GetMapping("/list")
-    @RequiresPermissions("business:book:setting")
+    @RequiresPermissions("business:book:setting:list")
     public R list(@RequestParam Map<String, Object> params) {
         //查询列表数据
         Query query = new Query(params);
@@ -49,27 +49,27 @@ public class BookSettingController {
 
     @ApiOperation(value = "新增书籍-设置列表页面", notes = "新增书籍-设置列表页面")
     @GetMapping("/add")
-    @RequiresPermissions("business:booksetting:add")
+    @RequiresPermissions("business:book:setting:add")
     String add() {
-        return "business/booksetting/add";
+        return "business/book/setting/add";
     }
 
     @ApiOperation(value = "修改书籍-设置列表页面", notes = "修改书籍-设置列表页面")
     @GetMapping("/edit/{id}")
-    @RequiresPermissions("business:booksetting:edit")
+    @RequiresPermissions("business:book:setting:edit")
     String edit(@PathVariable("id") Long id, Model model) {
         BookSettingDO bookSetting = bookSettingService.get(id);
         model.addAttribute("bookSetting", bookSetting);
-        return "business/booksetting/edit";
+        return "business/book/setting/edit";
     }
 
     @ApiOperation(value = "查看书籍详情-设置列表", notes = "查看书籍详情-设置列表")
     @GetMapping("/detail/{id}")
-    @RequiresPermissions("business:booksetting:detail")
+    @RequiresPermissions("business:book:setting:detail")
     String detail(@PathVariable("id") Long id, Model model) {
         BookSettingDO bookSetting = bookSettingService.get(id);
         model.addAttribute("bookSetting", bookSetting);
-        return "business/booksetting/detail";
+        return "business/book/setting/detail";
     }
 
     /**
@@ -78,7 +78,7 @@ public class BookSettingController {
     @ApiOperation(value = "删除付呗-订单信息表", notes = "删除书籍详情-设置列表")
     @PostMapping("/remove")
     @ResponseBody
-    @RequiresPermissions("business:booksetting:remove")
+    @RequiresPermissions("business:book:setting:remove")
     public R remove( Long id) {
         if (bookSettingService.remove(id) > 0) {
             return R.ok();
