@@ -1,5 +1,5 @@
 ﻿var BookDetail = {
-    wepDomain: 'lyqiaofu.com',
+    wepDomain: 'lyqiaofu.top',
     msgStyle: 'background-color:#333; color:#fff; text-align:center; border:none; font-size:20px; padding:10px;',
     reShowCover: function () {
         //$(".cCover").height($(".cDetail").height());

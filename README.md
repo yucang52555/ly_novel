@@ -87,7 +87,7 @@ Springboot+Mybatis+Mysql+Ehcache+Thymeleaf+Layui
 
 #### 演示地址
 
-[点击前往](http://novel.lyqiaofu.com)（前台门户）
+[点击前往](http://novel.lyqiaofu.top)（前台门户）
 
 #### 代码仓库
 

@@ -13,9 +13,9 @@ import java.util.Arrays;
  */
 public class HttpUtil {
 
-    private static RestTemplate restTemplate = RestTemplateUtil.getInstance("utf-8");
+//    private static RestTemplate restTemplate = RestTemplateUtil.getInstance("utf-8");
 
-//    private static RestTemplate restTemplate = RestTemplateUtil.getInstance("GBK");
+    private static RestTemplate restTemplate = RestTemplateUtil.getInstance("GBK");
 
 
     public static String getByHttpClient(String url) {
