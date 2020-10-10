@@ -3,7 +3,6 @@
 /logs
 /novel-front/*.iml
 /novel-common/*.iml
-/novel-mobile/target
 /novel-mobile/*.iml
 /novel-front/novel-front.iml
 /novel-crawl/novel-crawl.iml
