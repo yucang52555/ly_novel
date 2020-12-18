@@ -1,11 +1,14 @@
 /.idea
 /cachedata
 /logs
+/novel-common/target
+/novel-front/target
+/novel-crawl/target
+/novel-admin/target
 /novel-front/*.iml
 /novel-common/*.iml
 /novel-mobile/*.iml
 /novel-front/novel-front.iml
 /novel-crawl/novel-crawl.iml
-/novel-admin/logs
 /novel-admin/novel-admin.iml
 /novel.iml
