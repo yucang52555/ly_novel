@@ -2,7 +2,6 @@
 /cachedata
 /logs
 /novel-common/target
-/novel-front/target
 /novel-crawl/target
 /novel-admin/target
 /novel-front/*.iml
