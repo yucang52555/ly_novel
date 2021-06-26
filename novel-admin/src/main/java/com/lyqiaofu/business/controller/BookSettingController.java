@@ -75,8 +75,8 @@ public class BookSettingController {
     /**
      * 删除
      */
-    @ApiOperation(value = "删除付呗-订单信息表", notes = "删除书籍详情-设置列表")
-    @PostMapping("/remove")
+    @ApiOperation(value = "更新推荐列表", notes = "更新推荐列表")
+    @PostMapping("/update")
     @ResponseBody
     @RequiresPermissions("business:book:setting:remove")
     public R remove( Long id) {

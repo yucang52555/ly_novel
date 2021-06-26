@@ -146,7 +146,8 @@
                                 "                            <td class=\"goread\" id='sourceStatus"+crawlSource.id+"'>"+(crawlSource.sourceStatus==0?'停止运行':'正在运行')+
                                 "                            </td>\n" +
 
-                                " <td class=\"goread\" id='opt"+crawlSource.id+"'><a href='javascript:openOrStopCrawl("+crawlSource.id+","+crawlSource.sourceStatus+")'>"+(crawlSource.sourceStatus==0?'开启':'关闭')+"  </a></td>                     </tr>");
+                                " <td class=\"goread\" id='opt"+crawlSource.id+"'><a href='javascript:openOrStopCrawl("+crawlSource.id+","+crawlSource.sourceStatus+")'>"+(crawlSource.sourceStatus==0?'开启':'关闭')+"  </a></td> " +
+                                "                     </tr>");
                         }
                         $("#crawlSourceList").html(crawlSourceListHtml);
 

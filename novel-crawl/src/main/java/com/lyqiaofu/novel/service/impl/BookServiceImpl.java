@@ -84,7 +84,6 @@ public class BookServiceImpl implements BookService {
                 }
 
                 //保存小说主表
-
                 bookMapper.insertSelective(book);
 
                 //批量保存目录和内容
@@ -133,7 +132,8 @@ public class BookServiceImpl implements BookService {
             bookIndex.setWordCount(wordCount);
             bookIndex.setUpdateTime(currentDate);
 
-            if(bookIndex.getId() == null) {
+//            if(bookIndex.getId() == null) {
+            if(!existBookIndexMap.containsKey(bookIndex.getIndexNum())) {
                 //插入
                 bookIndex.setBookId(book.getId());
                 Long indexId = new IdWorker().nextId();
@@ -145,7 +145,8 @@ public class BookServiceImpl implements BookService {
                 bookIndexMapper.updateByPrimaryKeySelective(bookIndex);
             }
 
-            if(bookContent.getIndexId() == null) {
+//            if(bookContent.getIndexId() == null) {
+            if(!existBookIndexMap.containsKey(bookIndex.getIndexNum())) {
                 //插入
                 bookContent.setIndexId(bookIndex.getId());
                 bookContentMapper.insertSelective(bookContent);

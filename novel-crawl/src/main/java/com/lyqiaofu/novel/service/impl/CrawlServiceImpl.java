@@ -24,6 +24,7 @@ import org.mybatis.dynamic.sql.render.RenderingStrategies;
 import org.mybatis.dynamic.sql.select.render.SelectStatementProvider;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.CollectionUtils;
 
 import java.util.*;
 import java.util.regex.Matcher;
@@ -188,10 +189,13 @@ public class CrawlServiceImpl implements CrawlService {
                                     book.setCrawlSourceId(sourceId);
                                     book.setCrawlLastTime(new Date());
                                     book.setId(new IdWorker().nextId());
-                                    //解析章节目录
+                                    // 解析章节目录
                                     Map<Integer, List> indexAndContentList = CrawlParser.parseBookIndexAndContent(bookId, book, ruleBean, new HashMap<>(0));
-
-                                    bookService.saveBookAndIndexAndContent(book, (List<BookIndex>) indexAndContentList.get(CrawlParser.BOOK_INDEX_LIST_KEY), (List<BookContent>) indexAndContentList.get(CrawlParser.BOOK_CONTENT_LIST_KEY));
+                                    // 保存书籍内容
+                                    if (book.getLastIndexName().contains("大结局") || book.getLastIndexName().contains("全文完") || book.getLastIndexName().contains("番外")
+                                            || book.getLastIndexName().contains("完本") || book.getLastIndexName().contains("完结") || book.getLastIndexName().contains("终章")) {
+                                        bookService.saveBookAndIndexAndContent(book, (List<BookIndex>) indexAndContentList.get(CrawlParser.BOOK_INDEX_LIST_KEY), (List<BookContent>) indexAndContentList.get(CrawlParser.BOOK_CONTENT_LIST_KEY));
+                                    }
 
                                 } else {
                                     //只更新书籍的爬虫相关字段
