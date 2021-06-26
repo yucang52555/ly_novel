@@ -21,5 +21,4 @@ public class CrawlNovelApplication {
         SpringApplication.run(CrawlNovelApplication.class);
     }
 
-
 }

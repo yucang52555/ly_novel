@@ -35,4 +35,32 @@ public interface BookService {
      * @Date  2020/7/10 14:21
      **/
     int remove(String bookId);
+
+    /**
+     * 根据id获取书籍信息
+     * @param id
+     * @return
+     */
+    BookDO get(Long id);
+
+    /**
+     * 更新书籍信息
+     * @param book
+     * @return
+     */
+    int update(BookDO book);
+
+    /**
+     * 新增书籍
+     * @param book
+     * @return
+     */
+    int save(BookDO book);
+
+    /**
+     * 批量删除书籍
+     * @param bookIds
+     * @return
+     */
+    int batchremove(Long[] bookIds);
 }

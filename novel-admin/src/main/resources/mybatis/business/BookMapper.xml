@@ -5,12 +5,12 @@
 
 	<select id="list" resultType="com.lyqiaofu.business.domain.BookDO">
 		select
-			`id`,`cat_name`,`book_name`,`author_name`,`book_desc`,`visit_count`,
-			`word_count`,`comment_count` from book
-        <where>  
-		  <if test="catName != null and catName != ''"> and cat_name = #{catName} </if>
-		  <if test="bookName != null and bookName != ''"> and book_name = #{bookName} </if>
-		  <if test="authorName != null and authorName != ''"> and author_name = #{authorName} </if>
+			`id`,`cat_name`,`book_name`,`author_name`,`book_desc`,`visit_count`,`word_count`,`comment_count` from book
+        <where>
+			<if test="id != null and id != ''"> and id = #{id} </if>
+		  	<if test="catName != null and catName != ''"> and cat_name = #{catName} </if>
+		  	<if test="bookName != null and bookName != ''"> and book_name = #{bookName} </if>
+		  	<if test="authorName != null and authorName != ''"> and author_name = #{authorName} </if>
 		</where>
 		order by id desc
 		<if test="offset != null and limit != null">
@@ -21,6 +21,7 @@
 	<select id="count" resultType="int">
 		select count(*) from book
 		<where>
+			<if test="id != null and id != ''"> and id = #{id} </if>
 			<if test="catName != null and catName != ''"> and cat_name = #{catName} </if>
 			<if test="bookName != null and bookName != ''"> and book_name = #{bookName} </if>
 			<if test="authorName != null and authorName != ''"> and author_name = #{authorName} </if>
@@ -30,5 +31,55 @@
 	<delete id="remove">
 		delete from book where id = #{bookId}
 	</delete>
+
+	<select id="get" resultType="com.lyqiaofu.business.domain.BookDO">
+		select `id`,`cat_name`,`book_name`,`author_name`,`book_desc`,`visit_count`,`word_count`,`comment_count` from book where id = #{value}
+	</select>
+
+	<update id="update" parameterType="com.lyqiaofu.business.domain.BookDO">
+		update book
+		<set>
+			<if test="catName != null">`cat_name` = #{catName},</if>
+			<if test="bookName != null">`book_name` = #{bookName},</if>
+			<if test="authorName != null">`author_name` = #{authorName},</if>
+			<if test="bookDesc != null">`book_desc` = #{bookDesc},</if>
+			<if test="visitCount != null">`visit_count` = #{visitCount},</if>
+			<if test="wordCount != null">`word_count` = #{wordCount},</if>
+			<if test="commentCount != null">`comment_count` = #{commentCount},</if>
+			update_time = now()
+		</set>
+		where id = #{id}
+	</update>
+
+	<insert id="save" parameterType="com.lyqiaofu.business.domain.BookDO">
+		insert into book
+		(
+		`cat_name`,
+		`book_name`,
+		`author_name`,
+		`book_desc`,
+		`visit_count`,
+		`word_count`,
+		`comment_count`,
+		`create_time`,
+		`update_time`,
+		`pic_url`,
+		`book_status`
+		)
+		values
+		(
+		#{catName},
+		#{bookName},
+		#{authorName},
+		#{bookDesc},
+		#{visitCount},
+		#{wordCount},
+		#{commentCount},
+		now(),
+		now(),
+		'http://static.lyqiaofu.top/images/%E6%9A%82%E6%97%A0%E5%9B%BE%E7%89%87.jpg',
+		'0'
+		)
+	</insert>
 
 </mapper>

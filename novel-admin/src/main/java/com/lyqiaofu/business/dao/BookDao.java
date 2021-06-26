@@ -1,6 +1,7 @@
 package com.lyqiaofu.business.dao;
 
 import com.lyqiaofu.business.domain.BookDO;
+import com.lyqiaofu.system.domain.UserDO;
 import com.lyqiaofu.test.domain.OrderDO;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -16,4 +17,10 @@ public interface BookDao {
 	int count(Map<String, Object> map);
 
 	int remove(String bookId);
+
+	BookDO get(Long id);
+
+	int update(BookDO book);
+
+    int save(BookDO book);
 }

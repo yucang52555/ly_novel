@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:shiro="http://www.w3.org/1999/xhtml">
 <meta charset="utf-8">
 <head th:include="include :: header"></head>
 <body class="gray-bg">
@@ -8,14 +8,31 @@
         <div class="ibox">
             <div class="ibox-body">
                 <div class="fixed-table-toolbar">
+                    <div class="columns pull-left">
+                        <button shiro:hasPermission="business:book:add" type="button" class="btn  btn-primary" onclick="add()">
+                            <i class="fa fa-plus hidden" aria-hidden="true"></i>添加
+                        </button>
+                        <button shiro:hasPermission="business:book:batchRemove" type="button" class="btn  btn-danger" onclick="batchRemove()">
+                            <i class="fa fa-trash hidden" aria-hidden="true"></i>删除
+                        </button>
+                    </div>
+
                     <div class="columns pull-right">
                         <button class="btn btn-success" onclick="reLoad()">查询</button>
                     </div>
 
                     <form id="searchForm">
                         <div class="columns pull-right col-md-2">
-                            <input id="id" name="id" type="text" class="form-control"
-                                   placeholder="主键">
+                            <input id="authorName" name="authorName" type="text" class="form-control" placeholder="作者姓名">
+                        </div>
+                        <div class="columns pull-right col-md-2">
+                            <input id="catName" name="catName" type="text" class="form-control" placeholder="书籍类别">
+                        </div>
+                        <div class="columns pull-right col-md-2">
+                            <input id="id" name="id" type="text" class="form-control" placeholder="书籍id">
+                        </div>
+                        <div class="columns pull-right col-md-2">
+                            <input id="bookName" name="bookName" type="text" class="form-control" placeholder="书籍名称">
                         </div>
                     </form>
 
@@ -27,12 +44,28 @@
     </div>
 </div>
 <!--shiro控制bootstraptable行内按钮看见性 -->
+<!--shiro控制bootstraptable行内按钮看见性 -->
 <div>
     <script type="text/javascript">
-        var s_detail_h = 'hidden';
-        var s_edit_h = 'hidden';
-        var s_remove_h = 'hidden';
-    </script>
+				var s_edit_h = 'hidden';
+				var s_remove_h = 'hidden';
+				var s_detail_h = 'hidden';
+			</script>
+</div>
+<div shiro:hasPermission="business:book:edit">
+    <script type="text/javascript">
+				s_edit_h = '';
+			</script>
+</div>
+<div shiro:hasPermission="business:book:remove">
+    <script type="text/javascript">
+				var s_remove_h = '';
+			</script>
+</div>
+<div shiro:hasPermission="business:book:detail">
+    <script type="text/javascript">
+				var s_detail_h = '';
+			</script>
 </div>
 <div th:include="include :: footer"></div>
 <script type="text/javascript" src="/js/appjs/business/book/book.js"></script>

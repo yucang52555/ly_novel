@@ -37,8 +37,6 @@ public class HttpUtil {
         //https://baishuzhai.com/ibook/144/144086/7336052.html
         //https://baishuzhai.com/ibook/76/76442/4720107.html
 
-
-
         String content = getByHttpClient("https://baishuzhai.com/ibook/143/143568/7751095.html");
         System.out.println("content = " + content);
     }
