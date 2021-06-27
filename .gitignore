@@ -4,7 +4,6 @@
 /novel-common/target
 /novel-crawl/target
 /novel-admin/target
-/novel-front/target
 /novel-admin/logs
 /novel-front/*.iml
 /novel-common/*.iml
