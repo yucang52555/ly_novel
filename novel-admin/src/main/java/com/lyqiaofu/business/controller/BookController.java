@@ -86,15 +86,12 @@ public class BookController {
 	}
 
 	@ApiOperation(value = "获取书籍详情", notes = "获取书籍详情")
-	@ResponseBody
-	@GetMapping("/detail")
+	@GetMapping("/detail/{id}")
 	@RequiresPermissions("business:book:detail")
-	R detail(@RequestParam Map<String, Object> params) {
-		Query query = new Query(params);
-		List<BookDO> bookList = bookService.list(params);
-		int total = bookService.count(query);
-		PageBean pageBean = new PageBean(bookList, total);
-		return R.ok().put("data", pageBean);
+	String detail(Model model, @PathVariable("id") Long id) {
+		BookDO bookDO = bookService.get(id);
+		model.addAttribute("book", bookDO);
+		return prefix +"/detail";
 	}
 
 	/**
