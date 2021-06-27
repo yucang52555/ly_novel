@@ -56,6 +56,17 @@ public class CrawlController {
         return ResultBean.ok();
     }
 
+    /**
+     * 采集单个网址
+     * */
+    @PostMapping("crawBookByUrlAndSource")
+    public ResultBean crawBookByUrlAndSource(String bookUrl, Integer sourceId, Integer catId){
+
+        crawlService.crawBookByUrlAndSource(bookUrl, sourceId, catId);
+
+        return ResultBean.ok();
+    }
+
 
 
 

@@ -3,6 +3,7 @@ package com.lyqiaofu.novel.service;
 import com.lyqiaofu.novel.core.crawl.RuleBean;
 import com.lyqiaofu.novel.entity.CrawlSource;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -61,4 +62,11 @@ public interface CrawlService {
      * @return 源信息
      * */
     CrawlSource queryCrawlSource(Integer sourceId);
+
+    /**
+     * 采集单本书籍
+     * @param bookUrl
+     * @param sourceId
+     */
+    public void crawBookByUrlAndSource(String bookUrl, Integer sourceId, Integer catId);
 }

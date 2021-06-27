@@ -207,15 +207,10 @@ public class CrawlParser {
                         }else{
                             //老书更新
                         }
-
-
-
                         if(hasIndex != null){
                             bookIndex.setId(hasIndex.getId());
                             bookContent.setIndexId(hasIndex.getId());
                         }
-
-
                     } else {
                         break;
                     }
