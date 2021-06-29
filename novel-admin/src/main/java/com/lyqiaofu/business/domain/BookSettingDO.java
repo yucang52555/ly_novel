@@ -17,8 +17,8 @@ public class BookSettingDO implements Serializable {
     private Long id;
     //小说ID
     private Long bookId;
-//    //小说名
-//    private String bookName;
+    //小说名
+    private String bookName;
 //    //作者名
 //    private String catName;
     //排序号
@@ -26,7 +26,7 @@ public class BookSettingDO implements Serializable {
     //类型，0：轮播图，1：顶部小说栏设置，2：本周强推，3：热门推荐，4：精品推荐
     private Integer type;
     //类型描述
-    private Integer typeName;
+    private String typeName;
 
     public Long getId() {
         return id;
@@ -44,13 +44,13 @@ public class BookSettingDO implements Serializable {
         this.bookId = bookId;
     }
 
-//    public String getBookName() {
-//        return bookName;
-//    }
-//
-//    public void setBookName(String bookName) {
-//        this.bookName = bookName;
-//    }
+    public String getBookName() {
+        return bookName;
+    }
+
+    public void setBookName(String bookName) {
+        this.bookName = bookName;
+    }
 //
 //    public String getCatName() {
 //        return catName;
@@ -76,11 +76,11 @@ public class BookSettingDO implements Serializable {
         this.type = type;
     }
 
-    public Integer getTypeName() {
+    public String getTypeName() {
         return typeName;
     }
 
-    public void setTypeName(Integer typeName) {
+    public void setTypeName(String typeName) {
         this.typeName = typeName;
     }
 }
