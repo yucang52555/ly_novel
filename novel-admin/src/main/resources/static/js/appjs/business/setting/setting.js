@@ -84,16 +84,13 @@ function load() {
                         field: 'id',
                         align: 'center',
                         formatter: function (value, row, index) {
-                            var d = '<a class="btn btn-primary btn-sm ' + s_detail_h + '" href="#" mce_href="#" title="详情" onclick="detail(\''
-                                + row.id
-                                + '\')"><i class="fa fa-file"></i></a> ';
                             var e = '<a class="btn btn-primary btn-sm ' + s_edit_h + '" href="#" mce_href="#" title="编辑" onclick="edit(\''
                                 + row.id
                                 + '\')"><i class="fa fa-edit"></i></a> ';
                             var r = '<a class="btn btn-warning btn-sm ' + s_remove_h + '" href="#" title="删除"  mce_href="#" onclick="remove(\''
                                 + row.id
                                 + '\')"><i class="fa fa-remove"></i></a> ';
-                            return d + e + r;
+                            return e + r;
                         }
                     }]
             });
@@ -121,38 +118,38 @@ function reLoad() {
 //        content: prefix + '/detail/' + id // iframe的url
 //    });
 //}
-//function edit(id) {
-//    layer.open({
-//        type: 2,
-//        title: '编辑',
-//        maxmin: true,
-//        shadeClose: false, // 点击遮罩关闭层
-//        area: ['800px', '520px'],
-//        content: prefix + '/edit/' + id // iframe的url
-//    });
-//}
-//function remove(id) {
-//    layer.confirm('确定要删除选中的记录？', {
-//        btn: ['确定', '取消']
-//    }, function () {
-//        $.ajax({
-//            url: prefix + "/remove",
-//            type: "post",
-//            data: {
-//                'id': id
-//            },
-//            success: function (r) {
-//                if (r.code == 0) {
-//                    layer.msg(r.msg);
-//                    reLoad();
-//                } else {
-//                    layer.msg(r.msg);
-//                }
-//            }
-//        });
-//    })
-//}
-//
+function edit(id) {
+    layer.open({
+        type: 2,
+        title: '编辑',
+        maxmin: true,
+        shadeClose: false, // 点击遮罩关闭层
+        area: ['800px', '520px'],
+        content: prefix + '/edit/' + id // iframe的url
+    });
+}
+function remove(id) {
+    layer.confirm('确定要删除选中的记录？', {
+        btn: ['确定', '取消']
+    }, function () {
+        $.ajax({
+            url: prefix + "/remove",
+            type: "post",
+            data: {
+                'id': id
+            },
+            success: function (r) {
+                if (r.code == 0) {
+                    layer.msg(r.msg);
+                    reLoad();
+                } else {
+                    layer.msg(r.msg);
+                }
+            }
+        });
+    })
+}
+
 //function batchRemove() {
 //    var rows = $('#exampleTable').bootstrapTable('getSelections'); // 返回所有选择的行，当没有选择的记录时，返回一个空数组
 //    if (rows.length == 0) {

@@ -40,7 +40,11 @@ public class BookSettingServiceImpl implements BookSettingService {
 
     @Override
     public BookSettingDO get(Long id) {
-        return bookSettingDao.get(id);
+        BookSettingDO bookSettingDO = bookSettingDao.get(id);
+        bookSettingDO.setTypeName(RecommendTypeEnum.getNameByCode(bookSettingDO.getType()));
+        BookDO bookDo = bookDao.get(bookSettingDO.getBookId());
+        bookSettingDO.setBookName(bookDo.getBookName());
+        return bookSettingDO;
     }
 
     @Override
@@ -50,6 +54,6 @@ public class BookSettingServiceImpl implements BookSettingService {
 
     @Override
     public int update(BookSettingDO bookSetting) {
-        return 0;
+        return bookSettingDao.update(bookSetting);
     }
 }

@@ -80,9 +80,9 @@ public class BookSettingController {
      * 删除
      */
     @ApiOperation(value = "更新推荐列表", notes = "更新推荐列表")
-    @PostMapping("/update")
+    @PostMapping("/remove")
     @ResponseBody
-    @RequiresPermissions("business:book:setting:remove")
+    @RequiresPermissions("business:setting:remove")
     public R remove( Long id) {
         if (bookSettingService.remove(id) > 0) {
             return R.ok();

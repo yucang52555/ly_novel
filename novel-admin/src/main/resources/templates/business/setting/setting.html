@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:shiro="http://www.w3.org/1999/xhtml">
 <meta charset="utf-8">
 <head th:include="include :: header"></head>
 <body class="gray-bg">
@@ -40,10 +40,19 @@
 <!--shiro控制bootstraptable行内按钮看见性 -->
 <div>
     <script type="text/javascript">
-        var s_detail_h = 'hidden';
         var s_edit_h = 'hidden';
         var s_remove_h = 'hidden';
     </script>
+</div>
+<div shiro:hasPermission="business:book:edit">
+    <script type="text/javascript">
+				s_edit_h = '';
+			</script>
+</div>
+<div shiro:hasPermission="business:book:remove">
+    <script type="text/javascript">
+				var s_remove_h = '';
+			</script>
 </div>
 <div th:include="include :: footer"></div>
 <script type="text/javascript" src="/js/appjs/business/setting/setting.js"></script>

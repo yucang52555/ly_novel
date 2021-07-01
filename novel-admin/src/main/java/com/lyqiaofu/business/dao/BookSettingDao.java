@@ -19,4 +19,5 @@ public interface BookSettingDao {
 
 	int remove(Long id);
 
+    int update(BookSettingDO bookSetting);
 }

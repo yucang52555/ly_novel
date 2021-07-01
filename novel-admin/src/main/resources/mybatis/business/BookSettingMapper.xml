@@ -34,4 +34,14 @@
 	<delete id="remove">
 		delete from book_setting where id = #{value}
 	</delete>
+
+	<update id="update" parameterType="com.lyqiaofu.business.domain.BookSettingDO">
+		update book_setting
+		<set>
+			<if test="bookId != null">`book_id` = #{bookId},</if>
+			<if test="type != null">`type` = #{type},</if>
+			update_time = now()
+		</set>
+		where id = #{id}
+	</update>
 </mapper>
