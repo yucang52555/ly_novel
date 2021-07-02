@@ -13,5 +13,7 @@ public interface BookCategoryDao {
 
 	int count(Map<String, Object> map);
 
-	int remove(String bookId);
+	int remove(String categoryId);
+
+    int save(BookCategoryDO bookCategory);
 }

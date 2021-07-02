@@ -75,7 +75,7 @@ public class BookController {
 	}
 
 	@RequiresPermissions("business:book:add")
-	@Log("保存用户")
+	@Log("保存书籍")
 	@PostMapping("/save")
 	@ResponseBody
 	R save(BookDO book) {

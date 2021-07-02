@@ -12,7 +12,7 @@ function save() {
 	$.ajax({
 		cache : true,
 		type : "POST",
-		url : "/business/book/save",
+		url : "/business/category/save",
 		data : $('#signupForm').serialize(),// 你的formid
 		async : false,
 		error : function(request) {
@@ -36,26 +36,26 @@ function validateRule() {
 	var icon = "<i class='fa fa-times-circle'></i> ";
 	$("#signupForm").validate({
 		rules : {
-			bookName : {
+			workDirection : {
 				required : true
 			},
-			authorName : {
+			name : {
 				required : true
-			},
-			bookDesc : {
-				required : true
-			}
+			}/*,
+			sort : {
+				sort : true
+			}*/
 		},
 		messages : {
-			bookName : {
-				required : icon + "请输入书籍名称"
+			workDirection : {
+				required : icon + "请选择作品方向"
 			},
-			authorName : {
-				required : icon + "请输入作者名"
-			},
-			bookDesc : {
-				required : icon + "请输入书籍描述"
-			}
+			name : {
+				required : icon + "请输入类别名称"
+			}/*,
+			sort : {
+				required : icon + "请输入排序号"
+			}*/
 		}
 	})
 }

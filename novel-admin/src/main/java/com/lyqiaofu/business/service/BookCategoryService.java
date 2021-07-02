@@ -1,6 +1,7 @@
 package com.lyqiaofu.business.service;
 
 import com.lyqiaofu.business.domain.BookCategoryDO;
+import com.lyqiaofu.business.domain.BookDO;
 import com.lyqiaofu.business.domain.BookIndexDO;
 
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.Map;
  */
 public interface BookCategoryService {
     /**
-     * 查询书籍章节列表
+     * 查询书籍类别
      * @param map
      * @return
      */
@@ -28,9 +29,16 @@ public interface BookCategoryService {
     int count(Map<String, Object> map);
 
     /**
-     * @Desc 删除书籍
+     * @Desc 删除书籍类别
      * @Author ktc
      * @Date  2020/7/10 14:21
      **/
-    int remove(String bookId);
+    int remove(String categoryId);
+
+    /**
+     * @Desc 保存书籍类别
+     * @param bookCategory
+     * @return
+     */
+    int save(BookCategoryDO bookCategory);
 }
