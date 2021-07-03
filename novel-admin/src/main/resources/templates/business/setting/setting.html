@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:shiro="http://www.w3.org/1999/xhtml">
 <meta charset="utf-8">
 <head th:include="include :: header"></head>
 <body class="gray-bg">
@@ -13,20 +13,23 @@
                     </div>
 
                     <form id="searchForm">
+                        <!--<div class="columns pull-right col-md-2">
+                            <input id="bookName" name="bookName" type="text" class="form-control" placeholder="小说名称">
+                        </div>-->
                         <div class="columns pull-right col-md-2">
-                            <input id="bookId" name="id" type="text" class="form-control"
-                                   placeholder="小说ID">
+                            <select id="type" name="type" class="form-control" placeholder="小说类型">
+                                <!--类型，0：轮播图，1：顶部小说栏设置，2：本周强推，3：热门推荐，4：精品推荐-->
+                                <option value="0">轮播图</option>
+                                <option value="1">顶部小说栏设置</option>
+                                <option value="2">本周强推</option>
+                                <option value="3">热门推荐</option>
+                                <option value="4">精品推荐</option>
+                            </select>
                         </div>
-                        <div class="columns pull-right col-md-2">
-                            <input id="type" name="id" type="text" class="form-control"
-                                   placeholder="type">
-                        </div>
-                        <div class="columns pull-right col-md-2">
-                            <input id="id" name="id" type="text" class="form-control"
-                                   placeholder="主键">
-                        </div>
+                        <!--<div class="columns pull-right col-md-2">
+                            <input id="bookId" name="bookId" type="text" class="form-control" placeholder="小说ID">
+                        </div>-->
                     </form>
-
                 </div>
                 <table id="exampleTable" data-mobile-responsive="true">
                 </table>
@@ -37,12 +40,21 @@
 <!--shiro控制bootstraptable行内按钮看见性 -->
 <div>
     <script type="text/javascript">
-        var s_detail_h = 'hidden';
         var s_edit_h = 'hidden';
         var s_remove_h = 'hidden';
     </script>
 </div>
+<div shiro:hasPermission="business:book:edit">
+    <script type="text/javascript">
+				s_edit_h = '';
+			</script>
+</div>
+<div shiro:hasPermission="business:book:remove">
+    <script type="text/javascript">
+				var s_remove_h = '';
+			</script>
+</div>
 <div th:include="include :: footer"></div>
-<script type="text/javascript" src="/js/appjs/business/book/setting.js"></script>
+<script type="text/javascript" src="/js/appjs/business/setting/setting.js"></script>
 </body>
 </html>

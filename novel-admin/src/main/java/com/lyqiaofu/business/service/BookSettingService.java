@@ -40,4 +40,11 @@ public interface BookSettingService {
      * @Date  2020/7/1 10:18
      **/
     int remove(Long id);
+
+    /**
+     * 更新书籍推荐设置
+     * @param bookSetting
+     * @return
+     */
+    int update(BookSettingDO bookSetting);
 }
