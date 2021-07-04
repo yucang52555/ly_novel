@@ -10,6 +10,7 @@ import com.lyqiaofu.novel.utils.Constants;
 import lombok.SneakyThrows;
 import org.apache.commons.lang3.StringUtils;
 
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.regex.Matcher;
@@ -54,8 +55,13 @@ public class CrawlParser {
                         boolean isFindPicUrl = picUrlMatch.find();
                         if (isFindPicUrl) {
                             String picUrl = picUrlMatch.group(1);
-                            //设置封面图片路径
-                            book.setPicUrl(picUrl);
+                            if (!picUrl.startsWith("http")) {
+                                URL url = new URL(ruleBean.getBookListUrl());
+                                picUrl = url.getHost().concat(picUrl);
+                            } else  {
+                                //设置封面图片路径
+                                book.setPicUrl(picUrl);
+                            }
                         } else {
                             book.setPicUrl("");
                         }

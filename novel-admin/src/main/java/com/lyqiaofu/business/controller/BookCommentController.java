@@ -1,7 +1,9 @@
 package com.lyqiaofu.business.controller;
 
 import com.lyqiaofu.business.domain.BookCategoryDO;
+import com.lyqiaofu.business.domain.BookCommentDO;
 import com.lyqiaofu.business.service.BookCategoryService;
+import com.lyqiaofu.business.service.BookCommentService;
 import com.lyqiaofu.common.utils.PageBean;
 import com.lyqiaofu.common.utils.Query;
 import com.lyqiaofu.common.utils.R;
@@ -14,37 +16,37 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Map;
 
-@RequestMapping("/business/book/comment")
+@RequestMapping("/business/comment")
 @Controller
 public class BookCommentController {
 
 	@Autowired
-	BookCategoryService bookCategoryService;
+	BookCommentService bookCommentService;
 
 	@GetMapping()
-	@RequiresPermissions("business:book:comment")
+	@RequiresPermissions("business:comment:comment")
 	String comment() {
-		return "business/book/comment/comment";
+		return "business/comment/comment";
 	}
 
-	@ApiOperation(value = "获取章节列表", notes = "获取章节列表")
+	@ApiOperation(value = "获取评论列表", notes = "获取评论列表")
 	@ResponseBody
 	@GetMapping("/list")
-	@RequiresPermissions("business:book:comment:list")
+	@RequiresPermissions("business:comment:list")
 	R list(@RequestParam Map<String, Object> params) {
 		Query query = new Query(params);
-		List<BookCategoryDO> bookCategoryList = bookCategoryService.list(params);
-		int total = bookCategoryService.count(query);
+		List<BookCommentDO> bookCategoryList = bookCommentService.list(params);
+		int total = bookCommentService.count(query);
 		PageBean pageBean = new PageBean(bookCategoryList, total);
 		return R.ok().put("data", pageBean);
 	}
 
-	@ApiOperation(value = "删除章节数据", notes = "删除章节数据")
+	@ApiOperation(value = "删除评论数据", notes = "删除评论数据")
 	@PostMapping("/remove")
 	@ResponseBody
-	@RequiresPermissions("business:book:comment:remove")
+	@RequiresPermissions("business:comment:remove")
 	public R remove(String id) {
-		if (bookCategoryService.remove(id) > 0) {
+		if (bookCommentService.remove(id) > 0) {
 			return R.ok();
 		}
 		return R.error();

@@ -29,7 +29,7 @@ public class BookCommentServiceImpl implements BookCommentService {
     }
 
     @Override
-    public int remove(String bookId) {
-        return bookCommentDao.remove(bookId);
+    public int remove(String id) {
+        return bookCommentDao.remove(id);
     }
 }

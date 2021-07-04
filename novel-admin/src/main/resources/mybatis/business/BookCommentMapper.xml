@@ -5,7 +5,7 @@
 
 	<select id="list" resultType="com.lyqiaofu.business.domain.BookCommentDO">
 		select
-			`id`,`work_direction`,`name`,`sort`,`create_time`,`update_time`
+		`id`, `book_id`, `comment_content`, `reply_count`, `audit_status`, `create_time`
 		from
 			book_comment
 		order by id desc
@@ -19,7 +19,7 @@
 	</select>
 
 	<delete id="remove">
-		delete from book_comment where book_id = #{bookId}
+		delete from book_comment where id = #{id}
 	</delete>
 
 </mapper>

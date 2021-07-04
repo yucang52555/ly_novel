@@ -14,19 +14,10 @@
 
                     <form id="searchForm">
                         <div class="columns pull-right col-md-2">
-                            <input id="bookId" name="id" type="text" class="form-control"
-                                   placeholder="小说ID">
-                        </div>
-                        <div class="columns pull-right col-md-2">
-                            <input id="type" name="id" type="text" class="form-control"
-                                   placeholder="type">
-                        </div>
-                        <div class="columns pull-right col-md-2">
-                            <input id="id" name="id" type="text" class="form-control"
-                                   placeholder="主键">
+                            <input id="bookId" name="bookId" type="text" class="form-control"
+                                   placeholder="书籍id">
                         </div>
                     </form>
-
                 </div>
                 <table id="exampleTable" data-mobile-responsive="true">
                 </table>
@@ -37,12 +28,10 @@
 <!--shiro控制bootstraptable行内按钮看见性 -->
 <div>
     <script type="text/javascript">
-        var s_detail_h = 'hidden';
-        var s_edit_h = 'hidden';
         var s_remove_h = 'hidden';
     </script>
 </div>
 <div th:include="include :: footer"></div>
-<script type="text/javascript" src="/js/appjs/business/book/setting.js"></script>
+<script type="text/javascript" src="/js/appjs/business/index/index.js"></script>
 </body>
 </html>
