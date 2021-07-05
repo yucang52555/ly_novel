@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Map;
 
-@RequestMapping("/business/bookIndex")
+@RequestMapping("/business/index")
 @Controller
 public class BookIndexController {
 
@@ -22,7 +22,7 @@ public class BookIndexController {
 	BookIndexService bookIndexService;
 
 	@GetMapping()
-	@RequiresPermissions("business:book:index")
+	@RequiresPermissions("business:index:index")
 	String bookIndex() {
 		return "business/book/index/index";
 	}
@@ -30,7 +30,7 @@ public class BookIndexController {
 	@ApiOperation(value = "获取章节列表", notes = "获取章节列表")
 	@ResponseBody
 	@GetMapping("/list")
-	@RequiresPermissions("business:book:index:list")
+	@RequiresPermissions("business:index:list")
 	R list(@RequestParam Map<String, Object> params) {
 		Query query = new Query(params);
 		List<BookIndexDO> bookList = bookIndexService.list(params);
@@ -42,7 +42,7 @@ public class BookIndexController {
 	@ApiOperation(value = "删除章节数据", notes = "删除章节数据")
 	@PostMapping("/remove")
 	@ResponseBody
-	@RequiresPermissions("business:book:index:remove")
+	@RequiresPermissions("business:index:remove")
 	public R remove(String bookId) {
 		if (bookIndexService.remove(bookId) > 0) {
 			return R.ok();

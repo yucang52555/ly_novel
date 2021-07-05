@@ -1,6 +1,8 @@
 package com.lyqiaofu.business.controller;
 
 import com.lyqiaofu.business.domain.BookDO;
+import com.lyqiaofu.business.domain.BookIndexDO;
+import com.lyqiaofu.business.service.BookIndexService;
 import com.lyqiaofu.business.service.BookService;
 import com.lyqiaofu.common.annotation.Log;
 import com.lyqiaofu.common.config.Constant;
@@ -17,6 +19,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -28,6 +31,9 @@ public class BookController {
 
 	@Autowired
 	BookService bookService;
+
+	@Autowired
+	BookIndexService bookIndexService;
 
 	@GetMapping()
 	@RequiresPermissions("business:book:book")
@@ -75,7 +81,7 @@ public class BookController {
 	}
 
 	@RequiresPermissions("business:book:add")
-	@Log("保存用户")
+	@Log("保存书籍")
 	@PostMapping("/save")
 	@ResponseBody
 	R save(BookDO book) {
@@ -89,9 +95,14 @@ public class BookController {
 	@GetMapping("/detail/{id}")
 	@RequiresPermissions("business:book:detail")
 	String detail(Model model, @PathVariable("id") Long id) {
-		BookDO bookDO = bookService.get(id);
-		model.addAttribute("book", bookDO);
-		return prefix +"/detail";
+//		BookDO bookDO = bookService.get(id);
+//		Map<String, Object> params = new HashMap<String, Object>();
+//		params.put("bookId", bookDO.getId());
+//		model.addAttribute("book", bookDO);
+//		Query query = new Query(params);
+//		List<BookIndexDO> bookIndexList = bookIndexService.list(query);
+//		model.addAttribute("indexList", bookIndexList);
+		return "/book/index/index";
 	}
 
 	/**

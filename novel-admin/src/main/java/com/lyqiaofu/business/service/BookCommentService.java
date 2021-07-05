@@ -32,5 +32,5 @@ public interface BookCommentService {
      * @Author ktc
      * @Date  2020/7/10 14:21
      **/
-    int remove(String bookId);
+    int remove(String id);
 }
