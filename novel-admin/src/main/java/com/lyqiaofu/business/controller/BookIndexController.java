@@ -24,7 +24,7 @@ public class BookIndexController {
 	@GetMapping()
 	@RequiresPermissions("business:index:index")
 	String bookIndex() {
-		return "business/book/index/index";
+		return "business/index/index";
 	}
 
 	@ApiOperation(value = "获取章节列表", notes = "获取章节列表")
