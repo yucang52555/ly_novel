@@ -26,7 +26,7 @@ public class BookIndexServiceImpl implements BookIndexService {
     }
 
     @Override
-    public int remove(String bookId) {
-        return bookIndexDao.remove(bookId);
+    public int remove(String indexId) {
+        return bookIndexDao.remove(indexId);
     }
 }

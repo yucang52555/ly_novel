@@ -15,5 +15,5 @@ public interface BookIndexDao {
 
 	int count(Map<String, Object> map);
 
-	int remove(String bookId);
+	int remove(String indexId);
 }

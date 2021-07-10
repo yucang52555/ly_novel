@@ -26,6 +26,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
+import java.io.IOException;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -243,5 +244,61 @@ public class CrawlServiceImpl implements CrawlService {
                 .build()
                 .render(RenderingStrategies.MYBATIS3);
         return crawlSourceMapper.selectMany(render);
+    }
+
+    @Override
+    public void crawBookByUrlAndSource(String bookUrl, Integer sourceId, Integer catId){
+        //查询爬虫源状态和规则
+        CrawlSource source = queryCrawlSource(sourceId);
+        RuleBean ruleBean = null;
+        try {
+            ruleBean = new ObjectMapper().readValue(source.getCrawlRule(), RuleBean.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Pattern bookIdPatten = Pattern.compile(ruleBean.getBookIdPatten());
+        Matcher bookIdMatcher = bookIdPatten.matcher(bookUrl);
+        boolean isFindBookId = bookIdMatcher.find();
+        while (isFindBookId) {
+            try {
+                String bookId = bookIdMatcher.group(1);
+                Book book = CrawlParser.parseBook(ruleBean, bookId);
+                //这里只做新书入库，查询是否存在这本书
+                Book existBook = bookService.queryBookByBookNameAndAuthorName(book.getBookName(), book.getAuthorName());
+                //如果该小说不存在，则可以解析入库，但是标记该小说正在入库，30分钟之后才允许再次入库
+                if (existBook == null) {
+                    //没有该书，可以入库
+                    book.setCatId(catId);
+                    //根据分类ID查询分类
+                    book.setCatName(bookService.queryCatNameByCatId(catId));
+                    if (catId == 7) {
+                        //女频
+                        book.setWorkDirection((byte) 1);
+                    } else {
+                        //男频
+                        book.setWorkDirection((byte) 0);
+                    }
+                    book.setCrawlBookId(bookId);
+                    book.setCrawlSourceId(sourceId);
+                    book.setCrawlLastTime(new Date());
+                    book.setId(new IdWorker().nextId());
+                    // 解析章节目录
+                    Map<Integer, List> indexAndContentList = CrawlParser.parseBookIndexAndContent(bookId, book, ruleBean, new HashMap<>(0));
+                    // 保存书籍内容
+                    if (book.getLastIndexName().contains("大结局") || book.getLastIndexName().contains("全文完") || book.getLastIndexName().contains("番外")
+                            || book.getLastIndexName().contains("完本") || book.getLastIndexName().contains("完结") || book.getLastIndexName().contains("终章")) {
+
+                        bookService.saveBookAndIndexAndContent(book, (List<BookIndex>) indexAndContentList.get(CrawlParser.BOOK_INDEX_LIST_KEY), (List<BookContent>) indexAndContentList.get(CrawlParser.BOOK_CONTENT_LIST_KEY));
+                    }
+
+                } else {
+                    //只更新书籍的爬虫相关字段
+                    bookService.updateCrawlProperties(existBook.getId(), sourceId, bookId);
+                }
+            } catch (Exception e) {
+                log.error(e.getMessage(), e);
+            }
+            log.info("书籍：" + bookUrl + "采集完成");
+        }
     }
 }
