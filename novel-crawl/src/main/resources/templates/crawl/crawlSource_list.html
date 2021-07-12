@@ -38,6 +38,7 @@
                 <div class="title cf">
                     <h2 class="fl">爬虫源列表</h2>
                     <div class="fr"><a href="/crawl/crawlSource_add.html" class="btn_red">增加爬虫源</a></div>
+                    <div class="fr"><a href="/crawl/crawlSource_point.html" class="btn_red">定向采集</a></div>
                 </div>
 
                 <div id="divData" class="updateTable">
@@ -188,7 +189,6 @@
                 }else {
                     layer.alert(data.msg);
                 }
-
             },
             error: function () {
                 layer.alert('网络异常');
@@ -199,7 +199,6 @@
 
 
     function openOrStopCrawl(sourceId,status) {
-
         $.ajax({
             type: "POST",
             url: "/crawl/openOrCloseCrawl",
@@ -207,7 +206,6 @@
             dataType: "json",
             success: function (data) {
                 if (data.code == 200) {
-
                     if(status == 0){
                         //开启
                         $("#sourceStatus"+sourceId).html("正在运行");
@@ -217,8 +215,6 @@
                         $("#sourceStatus"+sourceId).html("停止运行");
                         $("#opt"+sourceId).html("<a href='javascript:openOrStopCrawl("+sourceId+","+0+")'>开启</a>");
                     }
-
-
                 } else if (data.code == 1001) {
                     //未登录
                     location.href = '/user/login.html?originUrl=' + decodeURIComponent(location.href);
@@ -226,17 +222,11 @@
                 }else {
                     layer.alert(data.msg);
                 }
-
             },
             error: function () {
                 layer.alert('网络异常');
             }
         })
-
-
-
-
-
     }
 </script>
 </html>
