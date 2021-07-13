@@ -38,4 +38,14 @@ public class BookIndexServiceImpl implements BookIndexService {
         }
         return 0;
     }
+
+    @Override
+    public int batchremove(Long[] indexIds) {
+        // 先删除章节内容，在删除相关章节
+        int count = bookContentDao.batchRemove(indexIds);
+        if (count > 0) {
+            count = bookIndexDao.batchRemove(indexIds);
+        }
+        return count;
+    }
 }

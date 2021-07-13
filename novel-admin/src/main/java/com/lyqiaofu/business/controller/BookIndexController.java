@@ -2,6 +2,7 @@ package com.lyqiaofu.business.controller;
 
 import com.lyqiaofu.business.domain.BookIndexDO;
 import com.lyqiaofu.business.service.BookIndexService;
+import com.lyqiaofu.common.annotation.Log;
 import com.lyqiaofu.common.utils.PageBean;
 import com.lyqiaofu.common.utils.Query;
 import com.lyqiaofu.common.utils.R;
@@ -43,8 +44,20 @@ public class BookIndexController {
 	@PostMapping("/remove")
 	@ResponseBody
 	@RequiresPermissions("business:index:remove")
-	public R remove(String bookId) {
-		if (bookIndexService.remove(bookId) > 0) {
+	public R remove(String id) {
+		if (bookIndexService.remove(id) > 0) {
+			return R.ok();
+		}
+		return R.error();
+	}
+
+	@RequiresPermissions("business:index:remove")
+	@Log("批量删除")
+	@PostMapping("/batchRemove")
+	@ResponseBody
+	R batchRemove(@RequestParam("ids[]") Long[] bookIds) {
+		int r = bookIndexService.batchremove(bookIds);
+		if (r > 0) {
 			return R.ok();
 		}
 		return R.error();

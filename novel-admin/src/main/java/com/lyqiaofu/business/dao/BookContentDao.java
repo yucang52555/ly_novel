@@ -11,4 +11,6 @@ import java.util.Map;
 public interface BookContentDao {
 
 	int remove(String indexId);
+
+	int batchRemove(Long[] indexIds);
 }

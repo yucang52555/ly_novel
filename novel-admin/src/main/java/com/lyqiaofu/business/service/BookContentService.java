@@ -19,4 +19,6 @@ public interface BookContentService {
      * @Date  2020/7/10 14:21
      **/
     int remove(String indexId);
+
+    int batchremove(Long[] indexIds);
 }

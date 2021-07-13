@@ -7,4 +7,11 @@
 		delete from book_content where index_id = #{indexId}
 	</delete>
 
+	<delete id="batchRemove">
+		delete from book_content where index_id in
+		<foreach item="indexId" collection="array" open="(" separator="," close=")">
+			#{indexId}
+		</foreach>
+	</delete>
+
 </mapper>

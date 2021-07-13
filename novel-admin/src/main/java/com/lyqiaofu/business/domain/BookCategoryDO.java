@@ -1,11 +1,15 @@
 package com.lyqiaofu.business.domain;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.lyqiaofu.common.jsonserializer.LongToStringSerializer;
+
 import javax.annotation.Generated;
 import java.io.Serializable;
 
 public class BookCategoryDO implements Serializable {
     private static final long serialVersionUID = 1L;
 
+    @JsonSerialize(using = LongToStringSerializer.class)
     private Integer id;
 
     private Integer workDirection;

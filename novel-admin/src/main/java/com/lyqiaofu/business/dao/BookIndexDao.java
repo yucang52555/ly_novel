@@ -16,4 +16,6 @@ public interface BookIndexDao {
 	int count(Map<String, Object> map);
 
 	int remove(String indexId);
+
+	int batchRemove(Long[] indexIds);
 }

@@ -22,4 +22,10 @@ public class BookContentServiceImpl implements BookContentService {
     public int remove(String indexId) {
         return bookContentDao.remove(indexId);
     }
+
+    @Override
+    public int batchremove(Long[] indexIds) {
+        int count = bookContentDao.batchRemove(indexIds);
+        return count;
+    }
 }
