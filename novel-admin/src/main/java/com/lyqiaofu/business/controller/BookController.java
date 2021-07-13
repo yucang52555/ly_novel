@@ -102,6 +102,7 @@ public class BookController {
 //		Query query = new Query(params);
 //		List<BookIndexDO> bookIndexList = bookIndexService.list(query);
 //		model.addAttribute("indexList", bookIndexList);
+		model.addAttribute("bookId", id);
 		return "/business/index/index";
 	}
 

@@ -8,7 +8,10 @@
 			`id`,`book_id`,`index_num`,`index_name`,`word_count`,`is_vip`,`create_time`
 		from
 			book_index
-		order by id desc
+		<where>
+			<if test="bookId != null and bookId != ''"> and book_id = #{bookId} </if>
+		</where>
+		order by id asc
 		<if test="offset != null and limit != null">
 			limit ${offset}, ${limit}
 		</if>
@@ -16,10 +19,19 @@
 
 	<select id="count" resultType="int">
 		select count(*) from book_index
+		<where>
+			<if test="bookId != null and bookId != ''"> and book_id = #{bookId} </if>
+		</where>
 	</select>
 
 	<delete id="remove">
 		delete from book_index where id = #{indexId}
 	</delete>
 
+	<delete id="batchRemove">
+		delete from book_index where id in
+		<foreach item="indexId" collection="array" open="(" separator="," close=")">
+			#{indexId}
+		</foreach>
+	</delete>
 </mapper>

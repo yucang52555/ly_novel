@@ -1,5 +1,8 @@
 package com.lyqiaofu.business.domain;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.lyqiaofu.common.jsonserializer.LongToStringSerializer;
+
 import javax.annotation.Generated;
 import java.io.Serializable;
 import java.util.Date;
@@ -7,8 +10,10 @@ import java.util.Date;
 public class BookCommentDO implements Serializable {
     private static final long serialVersionUID = 1L;
 
+    @JsonSerialize(using = LongToStringSerializer.class)
     private Long id;
 
+    @JsonSerialize(using = LongToStringSerializer.class)
     private Long bookId;
 
     private String bookName;

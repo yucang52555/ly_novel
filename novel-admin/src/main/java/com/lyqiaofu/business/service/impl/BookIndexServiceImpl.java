@@ -1,5 +1,6 @@
 package com.lyqiaofu.business.service.impl;
 
+import com.lyqiaofu.business.dao.BookContentDao;
 import com.lyqiaofu.business.dao.BookIndexDao;
 import com.lyqiaofu.business.domain.BookIndexDO;
 import com.lyqiaofu.business.service.BookIndexService;
@@ -15,6 +16,9 @@ public class BookIndexServiceImpl implements BookIndexService {
     @Autowired
     BookIndexDao bookIndexDao;
 
+    @Autowired
+    BookContentDao bookContentDao;
+
     @Override
     public List<BookIndexDO> list(Map<String, Object> map) {
         return bookIndexDao.list(map);
@@ -27,6 +31,21 @@ public class BookIndexServiceImpl implements BookIndexService {
 
     @Override
     public int remove(String indexId) {
-        return bookIndexDao.remove(indexId);
+        // 先删除章节内容，在删除相关章节
+        int flag = bookContentDao.remove(indexId);
+        if (flag > 0) {
+            return bookIndexDao.remove(indexId);
+        }
+        return 0;
+    }
+
+    @Override
+    public int batchremove(Long[] indexIds) {
+        // 先删除章节内容，在删除相关章节
+        int count = bookContentDao.batchRemove(indexIds);
+        if (count > 0) {
+            count = bookIndexDao.batchRemove(indexIds);
+        }
+        return count;
     }
 }

@@ -27,9 +27,16 @@ public interface BookIndexService {
     int count(Map<String, Object> map);
 
     /**
-     * @Desc 删除书籍
+     * @Desc 删除多余章节
      * @Author ktc
      * @Date  2020/7/10 14:21
      **/
-    int remove(String bookId);
+    int remove(String indexId);
+
+    /**
+     * 批量删除
+     * @param indexIds
+     * @return
+     */
+    int batchremove(Long[] indexIds);
 }
