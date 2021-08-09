@@ -11,6 +11,7 @@
         <module>novel-common</module>
         <module>novel-front</module>
         <module>novel-crawl</module>
+        <module>novel-wechat</module>
     </modules>
     <packaging>pom</packaging>
 

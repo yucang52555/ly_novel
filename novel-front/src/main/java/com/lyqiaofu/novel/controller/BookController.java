@@ -45,7 +45,7 @@ public class BookController extends BaseController{
     /**
      * 查询首页点击榜单数据
      * */
-    @PostMapping("listClickRank")
+    @RequestMapping("listClickRank")
     public ResultBean listClickRank(){
         return ResultBean.ok(bookService.listClickRank());
     }
@@ -69,7 +69,7 @@ public class BookController extends BaseController{
     /**
      * 查询小说分类列表
      * */
-    @PostMapping("listBookCategory")
+    @RequestMapping("listBookCategory")
     public ResultBean listBookCategory(){
         return ResultBean.ok(bookService.listBookCategory());
     }
@@ -77,7 +77,7 @@ public class BookController extends BaseController{
     /**
      * 分页搜索
      * */
-    @PostMapping("searchByPage")
+    @RequestMapping("searchByPage")
     public ResultBean searchByPage(BookSP bookSP, @RequestParam(value = "curr", defaultValue = "1") int page, @RequestParam(value = "limit", defaultValue = "20") int pageSize){
         List<BookVO> books = bookService.searchByPage(bookSP,page,pageSize);
         return ResultBean.ok(new PageInfo<>(books));
