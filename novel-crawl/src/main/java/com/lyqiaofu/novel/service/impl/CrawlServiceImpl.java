@@ -196,6 +196,8 @@ public class CrawlServiceImpl implements CrawlService {
                                     if (book.getLastIndexName().contains("大结局") || book.getLastIndexName().contains("全文完") || book.getLastIndexName().contains("番外")
                                             || book.getLastIndexName().contains("完本") || book.getLastIndexName().contains("完结") || book.getLastIndexName().contains("终章")) {
                                         bookService.saveBookAndIndexAndContent(book, (List<BookIndex>) indexAndContentList.get(CrawlParser.BOOK_INDEX_LIST_KEY), (List<BookContent>) indexAndContentList.get(CrawlParser.BOOK_CONTENT_LIST_KEY));
+                                    }else {
+                                        log.info("书籍采集成功，但是未完本：" + book.getBookName() + "暂不入库");
                                     }
 
                                 } else {
@@ -216,10 +218,7 @@ public class CrawlServiceImpl implements CrawlService {
                         if (isFindTotalPage) {
 
                             totalPage = Integer.parseInt(totalPageMatcher.group(1));
-
                         }
-
-
                     }
                 }
             }catch (Exception e){
@@ -227,8 +226,6 @@ public class CrawlServiceImpl implements CrawlService {
             }
             page += 1;
         }
-
-
     }
 
     @Override
