@@ -1,10 +1,28 @@
-<div th:fragment="footer" class="footer">
+<div th:fragment="footer" class="footer" xmlns:th="http://www.w3.org/1999/xhtml">
     <div class="box_center cf">
         <div class="copyright">
             <ul >
-                <li class="menu"><a href="/?to=mobile">手机站</a><i class="line">|</i><a href="/">网站首页</a><i class="line">|</i><a href="/about/default.html" >关于我们</a><i class="line">|</i><a href="/about/contact.html" >联系我们</a><i class="line">|</i><a href="/user/feedback.html" >反馈留言</a><i class="line">|</i><a href="javascript:layer.alert('待开通，敬请期待！');" >作家专区</a></li>
-                <li th:text="'Copyright (C) '+#{website.domain}+' All rights reserved&nbsp;&nbsp;'+#{website.name}+'版权所有'"></li>
+                <li class="menu">
+                    <a href="/?to=mobile">手机站</a>
+                    <i class="line">|</i>
+                    <a href="/">网站首页</a>
+                    <i class="line">|</i>
+                    <a href="/about/default.html" >关于我们</a>
+                    <i class="line">|</i>
+                    <a href="/about/contact.html" >联系我们</a>
+                    <i class="line">|</i>
+                    <a href="/user/feedback.html" >反馈留言</a>
+                    <i class="line">|</i><a href="javascript:layer.alert('待开通，敬请期待！');" >作家专区</a></li>
+                <!--<li th:text="'Copyright (C) '+#{website.domain}+' All rights reserved&nbsp;&nbsp;'+#{website.name}+'版权所有'">
+                </li>-->
+                <li>
+                    <a href="https://beian.miit.gov.cn" target="_blank">备案号:粤ICP备2021142221号-1</a> &nbsp;&nbsp;All rights reserved  樵夫小说网版权所有
+                </li>
 
+                <!--
+                <a class="line" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11000002000001" target="_blank">京公网安备11000002000001号</a>
+                <a class="line" href="https://beian.miit.gov.cn" target="_blank">粤ICP备2021142221号-1</a>
+                -->
             </ul>
         </div>
     </div>
